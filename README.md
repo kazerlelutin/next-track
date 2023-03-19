@@ -9,5 +9,5 @@ You can see my work here (for gif, the code, is... here) --> https://giphy.com/k
 
 ---
 
-[![ko-fi](https://storage.ko-fi.com/cdn/kofi2.png?v=3&size=small)](https://ko-fi.com/V7V46KBQ9)
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/V7V46KBQ9)
 
