@@ -4,7 +4,7 @@
   "description": "medias'universe open source",
   "main": "index.js",
   "scripts": {
-    "dev": "vite --host",
+    "dev": "concurrently \"vite --host\" \"npx wrangler pages dev /functions\"",
     "build": "vite build"
   },
   "repository": {
@@ -33,6 +33,7 @@
     "@kll_/core": "^0.1.71",
     "@kll_/translate": "^0.1.4",
     "autoprefixer": "^10.4.19",
+    "concurrently": "^8.2.2",
     "jsdom": "^24.0.0",
     "postcss": "^8.4.38",
     "tailwindcss": "^3.4.1",
