@@ -1,0 +1,1 @@
+export const menuSources = [{name: "backgrounds",cover:null},{name: "characters",cover:"/public/sources/characters/sagwa.svg"},{name: "offskate",cover:null},]

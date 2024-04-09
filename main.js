@@ -1,12 +1,16 @@
 import './public/style.css'
 import { KLL } from '@kll_/core'
-import { CreateComponentPlugin } from '@kll_/basic'
+import {
+  CreateComponentPlugin,
+  ManageAttrsPlugin,
+  SmartRenderPlugin,
+} from '@kll_/basic'
 import { TranslatePlugin } from '@kll_/translate'
 import { translation } from './data/translation.js'
 import { lsKEY } from './ctrl/rupteur.js'
 
 // TRANSLATE ========================
-const translateLsKey = '__roller-derby__lang'
+export const translateLsKey = '__kazerlelutin__lang'
 localStorage.setItem(translateLsKey, window.navigator.language.split('-')[0])
 
 const params = {
@@ -14,9 +18,15 @@ const params = {
   routes: {
     '/': import('./pages/index.html?raw').then((m) => m.default),
     '/about': import('./pages/about.html?raw').then((m) => m.default),
+    '/source/:type': import('./pages/sources.html?raw').then((m) => m.default),
+    '/source/:type/:name': import('./pages/source.html?raw').then(
+      (m) => m.default
+    ),
   },
   plugins: [
     CreateComponentPlugin,
+    SmartRenderPlugin,
+    ManageAttrsPlugin,
     (kll) => new TranslatePlugin(kll, translation, translateLsKey),
   ],
 }
