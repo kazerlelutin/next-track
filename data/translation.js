@@ -75,7 +75,7 @@ export const translation = {
   },
   backgrounds: {
     en: 'Backgrounds',
-    fr: 'Fonds',
+    fr: 'Décors',
     ko: '배경',
   },
   background: {
@@ -107,5 +107,10 @@ export const translation = {
     fr: 'Créateur',
     en: 'Creator',
     ko: '제작자',
+  },
+  sources_img_svg: {
+    fr: 'image (sources SVG)',
+    en: 'image (SVG sources)',
+    ko: '이미지 (SVG 출처)',
   },
 }
