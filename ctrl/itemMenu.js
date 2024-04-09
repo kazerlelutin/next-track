@@ -1,4 +1,5 @@
 import { menuSources } from '../data/menu-sources'
+import { kll } from '../main'
 
 export const itemMenu = {
   state: {},
@@ -14,12 +15,15 @@ export const itemMenu = {
                 ? `<div style="background: center/200% url(${source.cover})" class="absolute inset-0 z-0 "></div>`
                 : ''
             }
-            <div class="text-sm uppercase absolute inset-0 flex items-center justify-center dark:bg-opacity-30 bg-opacity-40 dark:bg-black bg-white font-bold dark:text-rd-pur text-rd-text z-1">${
+            <div href="/source/${
               source.name
-            }</div>
+            }" class="text-sm uppercase absolute inset-0 flex items-center justify-center dark:bg-opacity-30 bg-opacity-40 dark:bg-black bg-white font-bold dark:text-rd-pur text-rd-text z-1">${
+        source.name
+      }</div>
           </a>
         `
       el.appendChild(item)
     })
+    kll.reload(el)
   },
 }
