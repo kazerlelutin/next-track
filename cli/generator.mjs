@@ -68,7 +68,7 @@ async function generate() {
                 type: 'svg',
                 ext: 'svg',
                 data: await extractDataFromSvg(filePath),
-                url: `/public/sources/${file.name}/${fileRec.name}`,
+                url: `/sources/${file.name}/${fileRec.name}`,
               })
             }
           }
@@ -88,7 +88,7 @@ async function generate() {
           files: `import('./${file.name}.js').then((m) => m.default)`,
           cover:
             files.length > 0
-              ? `"/public/sources/${file.name}/${files[0].name}.${files[0].ext}"`
+              ? `"/sources/${file.name}/${files[0].name}.${files[0].ext}"`
               : 'null',
         })
       }
