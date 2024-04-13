@@ -129,4 +129,9 @@ export const translation = {
     en: 'Applications',
     ko: '앱',
   },
+  rules: {
+    fr: 'Règles',
+    en: 'Rules',
+    ko: '규칙',
+  },
 }
