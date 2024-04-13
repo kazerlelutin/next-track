@@ -1,4 +1,4 @@
-import { kll } from '../main'
+import { kll, translateLsKey } from '../main'
 import gen from '../_gen/'
 
 export const sections = {
@@ -10,7 +10,14 @@ export const sections = {
     if (!source) return // TODO 404
 
     const files = await source.file
-    for (const file of files) {
+    for (const file of files.filter((f) => {
+      if (f.ext === 'md') {
+        const lang = localStorage.getItem(translateLsKey)
+
+        return f.lang === lang
+      }
+      return true
+    })) {
       if (file.ext === 'svg') {
         const template = await kll.processTemplate('svgMini')
         kll.plugins.smartRender(template, {
@@ -21,11 +28,11 @@ export const sections = {
         el.appendChild(template)
       }
 
-      console.log(file)
       if (file.ext === 'md') {
         const template = await kll.processTemplate('mdMini')
         kll.plugins.smartRender(template, {
           ...file,
+          name: file?.data?.title || file.name,
           href: `/ressource/${params.category}/${params.section}/${file.name}`,
         })
         el.appendChild(template)

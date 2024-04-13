@@ -119,4 +119,14 @@ export const translation = {
     en: 'Document',
     ko: '문서',
   },
+  tools: {
+    fr: 'Outils',
+    en: 'Tools',
+    ko: '도구',
+  },
+  app: {
+    fr: 'Applications',
+    en: 'Applications',
+    ko: '앱',
+  },
 }

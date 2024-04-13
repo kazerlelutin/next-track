@@ -1,11 +1,13 @@
 <template id="mdRender">
     <div class="flex flex-col gap-3">
         <h1 class="font-bold dark:text-rd-sagwa text-rd-sagwa_young uppercase text-md">{{title}}</h1>
-        {{content}}
-
-        <div class="p-2 border border-rd-urban_gray">
-
-            <a href="{{url}}" alt="download" download="{{url}}" data-trans="dl_file"></a>
+        <div class="w-full">
+            {{content}}
         </div>
+        <div>---</div>
+        <div><span data-trans="creator" class="font-bold"></span>: {{author}}</div>
+        <a href="{{url}}" alt="download" download="{{url}}" data-trans="dl_file"></a>
+
+
     </div>
 </template>

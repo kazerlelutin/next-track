@@ -8,6 +8,31 @@ import {
 import path from 'path'
 import { JSDOM } from 'jsdom'
 
+export function extractMetaFromMd(md, url) {
+  const meta = {}
+  const lines = md.split('\n')
+
+  let i = 0
+  for (i = 0; i < lines.length; i++) {
+    const line = lines[i]
+    if (line.startsWith('---')) {
+      break
+    }
+
+    const [key, value] = line.split(':')
+    if (key && value) {
+      meta[key.trim()] = value.trim()
+    }
+  }
+
+  const content = lines.slice(i + 1).join('\n')
+
+  return {
+    meta,
+    content,
+  }
+}
+
 function parseLanguageSections(text) {
   const sections = {}
   const regex = /\[(\w{2})\]\n([\s\S]*?)(?=\n\[\w{2}\]\n|$)/g
@@ -90,8 +115,16 @@ async function generate(folder) {
 
             if (filePath.endsWith('.md')) {
               const [name, lang, ext] = fileRec.name.split('.')
-
+              const content = readFileSync(filePath, 'utf8')
               console.log(filePath)
+
+              const url = `/${folder}/${file.name}/${fileRec.name}`
+
+              const { meta, content: contentMd } = extractMetaFromMd(
+                content,
+                url
+              )
+
               files.push({
                 name,
                 lang,
@@ -99,7 +132,9 @@ async function generate(folder) {
                 fileName: name,
                 type: 'md',
                 ext: 'md',
-                url: `/${folder}/${file.name}/${fileRec.name}`,
+                data: meta,
+                url,
+                content: contentMd,
               })
             }
           }

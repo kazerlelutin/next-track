@@ -1,6 +1,7 @@
 import { kll, translateLsKey } from '../main'
 import gen from '../_gen/'
 import { mdToHtml } from '../utils/md-to-html'
+import { extractMetaFromMd } from '../utils/extractMetaFromMd'
 
 export const ressource = {
   state: {},
@@ -32,15 +33,15 @@ export const ressource = {
       const res = await fetch(md.url)
       const mediaRaw = await res.text()
       const template = await kll.processTemplate('mdRender')
+      const { meta, content } = extractMetaFromMd(mediaRaw)
 
-      /***
-       *
-       * TODO faire un TEMPLATE pour MD et SVG.
-       */
+      console.log(meta, content)
+
       kll.plugins.smartRender(template, {
-        content: mdToHtml(mediaRaw),
+        content: mdToHtml(content),
+        author: meta?.author || '---',
         url: media.url,
-        title: md.name,
+        title: md?.data?.title || md.name,
       })
 
       el.appendChild(template)

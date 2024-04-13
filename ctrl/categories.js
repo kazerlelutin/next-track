@@ -2,7 +2,7 @@ import gen from '../_gen/'
 import { kll } from '../main'
 
 export const categories = {
-  async onInit(_, el, e) {
+  async onInit(_, el) {
     const container = document.createElement('div')
     for (const cat of gen.filter((s) => s.name.includes('menu-'))) {
       const catEl = await kll.processTemplate('category')
