@@ -18,10 +18,12 @@ const params = {
   routes: {
     '/': import('./pages/index.html?raw').then((m) => m.default),
     '/about': import('./pages/about.html?raw').then((m) => m.default),
-    '/source/:type': import('./pages/sources.html?raw').then((m) => m.default),
-    '/source/:type/:name': import('./pages/source.html?raw').then(
+    '/category/:category/:section': import('./pages/sections.html?raw').then(
       (m) => m.default
     ),
+    '/ressource/:category/:section/:name': import(
+      './pages/ressource.html?raw'
+    ).then((m) => m.default),
   },
   plugins: [
     CreateComponentPlugin,

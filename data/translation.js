@@ -1,7 +1,3 @@
-import backgrounds from './backgrounds'
-import characters from './characters'
-import offskate from './offskate'
-
 export const translation = {
   kofi: {
     fr: 'Payez-moi un café',
@@ -112,5 +108,15 @@ export const translation = {
     fr: 'image (sources SVG)',
     en: 'image (SVG sources)',
     ko: '이미지 (SVG 출처)',
+  },
+  sources_universe: {
+    fr: 'univers',
+    en: 'universe',
+    ko: '우주',
+  },
+  document: {
+    fr: 'Document',
+    en: 'Document',
+    ko: '문서',
   },
 }

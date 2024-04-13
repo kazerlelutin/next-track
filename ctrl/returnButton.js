@@ -11,15 +11,16 @@ export const returnButton = {
 
     const routeLength = route.split('/').length
 
-    if (route.match(/source/)) {
+    console.log(routeLength, route)
+    if (route.match(/category/)) {
       if (routeLength === 4) {
-        el.href = `/source/${params.type}`
-        textEl.setAttribute('data-trans', params.type)
+        el.href = `/`
+        textEl.setAttribute('data-trans', 'home')
       } else if (routeLength === 3) {
-        el.href = '/source'
+        el.href = '/category'
         textEl.setAttribute('data-trans', 'source')
       } else {
-        el.href = '/source'
+        el.href = '/category'
         textEl.setAttribute('data-trans', 'source')
       }
 

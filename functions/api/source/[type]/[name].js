@@ -1,4 +1,4 @@
-import { sources } from '../../../../data/sources'
+import sources from '../../../../_gen'
 
 export async function onRequest(context) {
   const sc = sources.find((source) => source.name === context.params.type)

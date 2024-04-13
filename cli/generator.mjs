@@ -1,4 +1,10 @@
-import { readdirSync, readFileSync, writeFileSync } from 'fs' // Utiliser fs/promises pour les opérations asynchrones
+import {
+  readdirSync,
+  readFileSync,
+  writeFileSync,
+  mkdirSync,
+  existsSync,
+} from 'fs'
 import path from 'path'
 import { JSDOM } from 'jsdom'
 
@@ -15,6 +21,8 @@ function parseLanguageSections(text) {
 
   return sections
 }
+
+const BASE_FOLDER = '_gen'
 
 async function extractDataFromSvg(svg) {
   const svgContent = readFileSync(svg, 'utf8')
@@ -38,13 +46,19 @@ async function extractDataFromSvg(svg) {
   }
 }
 
-async function generate() {
-  const directoryPath = path.join(process.cwd(), '/public/sources')
+async function generate(folder) {
+  console.log('---- Begin generate for', folder)
+
+  const isExist = existsSync(path.join(process.cwd(), BASE_FOLDER))
+  if (!isExist) mkdirSync(path.join(process.cwd(), BASE_FOLDER))
+
+  // --- Lecture du dossier source
+  const directoryPath = path.join(process.cwd(), '/public/' + folder)
 
   try {
     const files = readdirSync(directoryPath, { withFileTypes: true })
 
-    const sources = []
+    const folderToExport = []
 
     for (const file of files) {
       if (file.isDirectory()) {
@@ -59,7 +73,9 @@ async function generate() {
           if (fileRec.isFile()) {
             const filePath = folderPath + '/' + fileRec.name
             const content = readFileSync(filePath, 'utf8')
-            if (content.match(/<svg/)) {
+
+            // SVG ----------------------------------------------
+            if (filePath.endsWith('.svg') && content.match(/<svg/)) {
               const name = fileRec.name.replace('.svg', '')
 
               files.push({
@@ -68,12 +84,32 @@ async function generate() {
                 type: 'svg',
                 ext: 'svg',
                 data: await extractDataFromSvg(filePath),
-                url: `/sources/${file.name}/${fileRec.name}`,
+                url: `/${folder}/${file.name}/${fileRec.name}`,
+              })
+            }
+
+            if (filePath.endsWith('.md')) {
+              const [name, lang, ext] = fileRec.name.split('.')
+
+              console.log(filePath)
+              files.push({
+                name,
+                lang,
+                ext,
+                fileName: name,
+                type: 'md',
+                ext: 'md',
+                url: `/${folder}/${file.name}/${fileRec.name}`,
               })
             }
           }
         }
-        const typeSourcePath = path.join(process.cwd(), `/data/${file.name}.js`)
+
+        const fileName = `${folder}_${file.name}.js`
+        const typeSourcePath = path.join(
+          process.cwd(),
+          `/${BASE_FOLDER}/${fileName}`
+        )
 
         writeFileSync(
           typeSourcePath,
@@ -83,30 +119,33 @@ async function generate() {
           'utf8'
         )
 
-        sources.push({
+        folderToExport.push({
           name: file.name,
-          files: `import('./${file.name}.js').then((m) => m.default)`,
+          files: `import('./${fileName}').then((m) => m.default)`,
           cover:
             files.length > 0
-              ? `"/sources/${file.name}/${files[0].name}.${files[0].ext}"`
+              ? `"/${folder}/${file.name}/${files[0].name}.${files[0].ext}"`
               : 'null',
         })
       }
     }
 
     writeFileSync(
-      path.join(process.cwd(), '/data/sources.js'),
-      `export const sources = [${sources
+      path.join(process.cwd(), `/${BASE_FOLDER}/${folder}.js`),
+      `const ${folder} = [${folderToExport
         .map((source) => `{name: "${source.name}",files:${source.files}},`)
-        .join('')}]`,
+        .join('')}]
+        export default ${folder}
+        `,
       'utf8'
     )
 
     writeFileSync(
-      path.join(process.cwd(), '/data/menu-sources.js'),
-      `export const menuSources = [${sources
+      path.join(process.cwd(), `/${BASE_FOLDER}/menu-${folder}.js`),
+      `const menu = [${folderToExport
         .map((source) => `{name: "${source.name}",cover:${source.cover}},`)
-        .join('')}]`,
+        .join('')}]
+        export default menu`,
       'utf8'
     )
   } catch (error) {
@@ -116,4 +155,43 @@ async function generate() {
   console.log('generate done')
 }
 
-generate()
+async function generateLazyImports() {
+  console.log('---- Begin generate lazy imports')
+  const directoryPath = path.join(process.cwd(), BASE_FOLDER)
+  const files = readdirSync(directoryPath, { withFileTypes: true })
+
+  const imports = []
+  for (const file of files) {
+    if (file.isFile()) {
+      imports.push({
+        name: file.name.split('.')[0],
+        file: `import('./${file.name}').then((m) => m.default)`,
+      })
+    }
+  }
+
+  writeFileSync(
+    path.join(process.cwd(), `/${BASE_FOLDER}/index.js`),
+    `const imports = [${imports
+      .filter((i) => i.name !== 'index')
+      .map((i) => `{name: "${i.name}",file:${i.file}},`)
+      .join('')}]
+    export default imports`,
+    'utf8'
+  )
+}
+
+async function start() {
+  console.log('---- Read all directories in /public')
+  const directoryPath = path.join(process.cwd(), '/public')
+  const files = readdirSync(directoryPath, { withFileTypes: true })
+
+  for (const file of files) {
+    if (file.isDirectory()) {
+      await generate(file.name)
+    }
+  }
+  generateLazyImports()
+}
+
+start()

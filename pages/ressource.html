@@ -2,13 +2,10 @@
     <div class="gap-5 flex flex-col bold items-center h-full p-3 m-auto max-w-[500px]">
         <div kll-t="fullLoader" data-source-loader></div>
         <div kll-tc="returnButton" class="w-full"></div>
-        <div kll-ctrl="source" class="flex flex-col gap-1">
-            <img src="{{img}}" data-hide="true" data-source-img class="dark:bg-slate-900" />
-            <a href="{{img}}" alt="download" download="{{name}}" data-trans="dl_file"></a>
-            <div><span data-trans="creator" class="font-bold"></span>: {{creator}}</div>
-            <div class="italic">{{description}}</div>
-        </div>
-        <div>
+
+        <div kll-ctrl="ressource" class="flex flex-col gap-1" kll-id="ressource"></div>
+
+        <div class="border-t border-dashed border-rd-urban_gray w-full mt-5 pt-4 text-center">
             <p xmlns:cc="http://creativecommons.org/ns#" class="text-sm flex flex-col gap-2">
             <div data-trans="work_mark"></div>
             <a href="https://creativecommons.org/publicdomain/zero/1.0?ref=chooser-v1"

@@ -5,7 +5,9 @@ export * from './link.js'
 export * from './confirmDialog.js'
 export * from './returnButton'
 export * from './tabs'
-
-export * from "./source"
-export * from "./itemMenu"
-export * from "./sources"
+export * from './itemMenu'
+export * from './category'
+export * from './section'
+export * from './categories'
+export * from './sections'
+export * from './ressource'

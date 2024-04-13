@@ -1,1 +1,0 @@
-export const sources = [{name: "backgrounds",files:import('./backgrounds.js').then((m) => m.default)},{name: "characters",files:import('./characters.js').then((m) => m.default)},{name: "offskate",files:import('./offskate.js').then((m) => m.default)},]

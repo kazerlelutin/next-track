@@ -1,12 +1,14 @@
-import { sources } from '../data/sources'
 import { kll, translateLsKey } from '../main'
 
-export const source = {
+export const section = {
   state: {},
   async onInit(_state, el) {
     const { params } = kll.parseRoute()
 
-    const sc = sources.find((source) => source.name === params.type)
+    return
+
+    console.log(params)
+    const sc = sources.find((source) => source.name === params.folder)
 
     const files = await sc.files
 
