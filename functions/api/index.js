@@ -16,10 +16,11 @@ export async function onRequest(context) {
 
     if (!files) continue
     const resultCat = result.find((r) => r.name === catName)
+    const url = `${context.functionPath}/${catName}`
     resultCat.files = files.map((file) => ({
       name: file.name,
       category: catName,
-      cover: `${context.functionPath}/${catName}/${file.name}`,
+      url: url,
     }))
   }
 
