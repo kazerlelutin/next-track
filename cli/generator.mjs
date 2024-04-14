@@ -98,6 +98,9 @@ async function generate(folder) {
           if (fileRec.isFile()) {
             const filePath = folderPath + '/' + fileRec.name
             const content = readFileSync(filePath, 'utf8')
+            const url = `/${folder}/${file.name}/${fileRec.name}`
+
+            console.log('file:', filePath)
 
             // SVG ----------------------------------------------
             if (filePath.endsWith('.svg') && content.match(/<svg/)) {
@@ -113,12 +116,10 @@ async function generate(folder) {
               })
             }
 
+            // MD ----------------------------------------------
             if (filePath.endsWith('.md')) {
               const [name, lang, ext] = fileRec.name.split('.')
               const content = readFileSync(filePath, 'utf8')
-              console.log(filePath)
-
-              const url = `/${folder}/${file.name}/${fileRec.name}`
 
               const { meta, content: contentMd } = extractMetaFromMd(
                 content,
@@ -135,6 +136,18 @@ async function generate(folder) {
                 data: meta,
                 url,
                 content: contentMd,
+              })
+            }
+
+            // JSON ----------------------------------------------
+
+            if (filePath.endsWith('.json')) {
+              const [name, ext] = fileRec.name.split('.')
+              const content = readFileSync(filePath, 'utf8')
+              files.push({
+                name,
+                ext,
+                ...JSON.parse(content),
               })
             }
           }

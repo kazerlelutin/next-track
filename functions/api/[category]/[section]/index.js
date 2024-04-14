@@ -9,13 +9,12 @@ export async function onRequest(context) {
   const sec = imports.find((s) => s.name === fileNames)
 
   if (!sec) return new Response('Not found', { status: 404 })
-  sec.files = await sec.file
 
   const result = {
     name: section,
     category,
     url: `${context.functionPath}`,
-    files: await sec.files.map((file) => ({
+    files: await sec.file.map((file) => ({
       name: file.name,
       section,
       category,

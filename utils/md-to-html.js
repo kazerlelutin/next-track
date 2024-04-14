@@ -1,45 +1,50 @@
 export function mdToHtml(markdown) {
-  // Convertir les balises de titre
+  // Convert title tags
   markdown = markdown.replace(/^### (.*$)/gim, '<h3>$1</h3>')
   markdown = markdown.replace(/^## (.*$)/gim, '<h2>$1</h2>')
   markdown = markdown.replace(/^# (.*$)/gim, '<h1>$1</h1>')
 
-  // Convertir les gras et italiques
-  markdown = markdown.replace(/\*\*(.*)\*\*/gim, '<b>$1</b>')
-  markdown = markdown.replace(/\*(.*)\*/gim, '<i>$1</i>')
+  // Convert bold, italics, underline, and strikethrough
+  markdown = markdown.replace(/\*\*([^*]+)\*\*/gim, '<b>$1</b>')
+  markdown = markdown.replace(/\*([^*]+)\*/gim, '<i>$1</i>')
+  markdown = markdown.replace(/__(.*?)__/gim, '<u>$1</u>')
+  markdown = markdown.replace(/~~(.*?)~~/gim, '<s>$1</s>')
 
-  // Convertir les liens
-  // S'assure que le texte ne commence pas par un "!", ce qui indiquerait une image
+  // Convert links and images
   markdown = markdown.replace(
     /\[([^\]]+)\]\((http[^)]+)\)/gim,
-    (match, p1, p2) => {
-      if (match.startsWith('!')) {
-        return match // Si c'est une image, ne pas la convertir ici
-      }
-      return `<a href="${p2}">${p1}</a>` // Convertir en lien HTML
-    }
+    '<a href="$2">$1</a>'
   )
-
-  // Convertir les images
-  // Utilise un préfixe "!" pour identifier les images
   markdown = markdown.replace(
     /\!\[([^\]]+)\]\(([^)]+)\)/gim,
     '<img src="$2" alt="$1" />'
   )
 
-  // Convertir les paragraphes
+  // Convert lists (unordered and ordered)
+  markdown = markdown.replace(/^\* (.*$)/gim, '<li>$1</li>')
+  markdown = markdown.replace(/^\d+\.\s+(.*$)/gim, '<li>$1</li>')
+  markdown = markdown.replace(/(<li>.*<\/li>)/gim, (m) => {
+    const tag = m.startsWith('<li>1.') ? 'ol' : 'ul'
+    return `<${tag}>${m}</${tag}>`
+  })
+
+  // Convert code
+  markdown = markdown.replace(/```(.*?)```/gs, '<pre><code>$1</code></pre>')
+  markdown = markdown.replace(/`(.*?)`/g, '<code>$1</code>')
+
+  // Convert blockquotes
+  markdown = markdown.replace(/^> (.*$)/gim, '<blockquote>$1</blockquote>')
+
+  // Convert horizontal rules
+  markdown = markdown.replace(/^\-{3,}$/gm, '<hr />')
+
+  // Convert paragraphs
   markdown = markdown
     .split(/\n\n/)
     .map((paragraph) => `<p>${paragraph.trim()}</p>`)
     .join('\n')
 
-  // Convertir les paragraphes
-  markdown = markdown
-    .split(/\n\n/)
-    .map((paragraph) => `<p>${paragraph}</p>`)
-    .join('\n')
-
-  // Convertir les sauts de ligne
+  // Convert line breaks
   markdown = markdown.replace(/\n/gim, '<br />')
 
   return markdown

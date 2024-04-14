@@ -1,0 +1,14 @@
+{
+  "title": {
+    "fr": "Plateforme Kazerlelutin's Space",
+    "en": "Kazerlelutin's Space Platform",
+    "kr": "카젤르루탱의 스페이스 플랫폼"
+  },
+  "description": {
+    "fr": "code source",
+    "en": "source code",
+    "kr": "소스 코드"
+  },
+  "author": "kazerlelutin",
+  "external": "https://github.com/kazerlelutin/kazerlelutin"
+}

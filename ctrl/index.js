@@ -6,7 +6,9 @@ export * from './confirmDialog.js'
 export * from './returnButton'
 export * from './tabs'
 export * from './itemMenu'
-export * from './section'
+
 export * from './categories'
 export * from './sections'
 export * from './ressource'
+
+export * from './mdtoHtml'

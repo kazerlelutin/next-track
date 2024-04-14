@@ -85,9 +85,9 @@ export const translation = {
     ko: '오프스케이트',
   },
   resume_projet: {
-    fr: "Next Track est un projet d'univers transmédia autour du roller derby dont tout le contenu est sous licence libre. Cela signifie que vous pouvez utiliser, partager et modifier tout ce que vous trouverez ici, à condition de respecter les conditions de la licence.",
-    en: 'Next Track is a transmedia project about roller derby. All the content is under a free license. This means you can use, share and modify everything you find here, as long as you respect the license conditions.',
-    ko: 'Next Track은 롤러 더비에 관한 트랜스미디어 프로젝트입니다. 모든 콘텐츠는 무료 라이선스로 제공됩니다. 이는 여러분이 여기에서 찾은 모든 것을 사용, 공유, 수정할 수 있다는 것을 의미합니다. 라이선스 조건을 준수한다면요.',
+    fr: 'Bienvenue sur "Next Track" de Kazerlelutin, un univers transmédia ouvert qui inclut une bande dessinée, des animations, des jeux vidéo et des applications. Cet espace, __Kazerlelutin\'s Space__, est votre portail pour accéder à toutes les ressources, découvrir des outils et participer activement. Toutes les productions liées à cet univers sont disponibles sous une licence **libre de droit**, vous invitant à **explorer, modifier et partager sans limite**.',
+    en: 'Welcome to "Next Track" by Kazerlelutin, an open transmedia universe that includes a comic book, animations, video games, and applications. This space, __Kazerlelutin\'s Space__, is your portal to access all resources, discover tools, and participate actively. All productions related to this universe are available under a **free license**, inviting you to **explore, modify, and share without limit**.',
+    ko: 'Kazerlelutin의 "Next Track"에 오신 것을 환영합니다. 이는 만화, 애니메이션, 비디오 게임 및 애플리케이션을 포함하는 오픈 트랜스미디어 우주입니다. 이 공간, __Kazerlelutin\'s Space__,은 모든 리소스에 액세스하고 도구를 발견하며 적극적으로 참여할 수 있는 포털입니다. 이 우주와 관련된 모든 제작물은 **무료 라이선스**로 제공되어 **제한 없이 탐색, 수정 및 공유**할 수 있습니다.',
   },
   work_mark: {
     fr: 'Ce travail est sous licence libre',
@@ -133,5 +133,10 @@ export const translation = {
     fr: 'Règles',
     en: 'Rules',
     ko: '규칙',
+  },
+  description: {
+    fr: 'Description',
+    en: 'Description',
+    ko: '설명',
   },
 }

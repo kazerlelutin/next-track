@@ -17,6 +17,37 @@ export const ressource = {
 
     if (!media) return
 
+    if (media.ext === 'json') {
+      const template = await kll.processTemplate('mdRender')
+
+      const content = async () => {
+        if (!media.external) return description[lang]
+        const res = await fetch(
+          'https://metaseur.vercel.app/api?url=' + media.external,
+          {
+            headers: {
+              'Content-Type': 'application/json',
+              'X-Requested-With': 'XMLHttpRequest',
+            },
+            mode: 'cors', // This should not be 'no-cors'
+          }
+        )
+
+        const mediaRaw = await res.json()
+
+        console.log(mediaRaw)
+
+        return ''
+      }
+
+      kll.plugins.smartRender(template, {
+        ...media,
+        title: media.title[lang] || media.title.fr,
+        content: content(),
+      })
+      el.appendChild(template)
+    }
+
     if (media.type === 'md') {
       const mds = files
         .filter((file) => file.name === params.name)
@@ -34,8 +65,6 @@ export const ressource = {
       const mediaRaw = await res.text()
       const template = await kll.processTemplate('mdRender')
       const { meta, content } = extractMetaFromMd(mediaRaw)
-
-      console.log(meta, content)
 
       kll.plugins.smartRender(template, {
         content: mdToHtml(content),
