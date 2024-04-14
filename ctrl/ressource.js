@@ -4,7 +4,6 @@ import { mdToHtml } from '../utils/md-to-html'
 import { extractMetaFromMd } from '../utils/extractMetaFromMd'
 
 export const ressource = {
-  state: {},
   async onInit(_, el) {
     const { params } = kll.parseRoute()
     const source = gen.find(
@@ -100,5 +99,4 @@ export const ressource = {
     kll.plugins.translate(el)
     kll.reload(el)
   },
-  render() {},
 }

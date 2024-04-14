@@ -1,6 +1,5 @@
 import { kll, translateLsKey } from '../main'
 import gen from '../_gen/'
-import description from '../_gen/univers_description'
 
 export const sections = {
   async onInit(_, el) {
