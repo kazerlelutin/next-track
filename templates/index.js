@@ -9,7 +9,6 @@ export * as fullLoader from './fullLoader.html?raw'
 export * as miniature from './miniature.html?raw'
 
 export * as category from './category.html?raw'
-export * as section from './section.html?raw'
 
 export * as categories from './categories.html?raw'
 export * as sections from './sections.html?raw'
@@ -19,3 +18,5 @@ export * as mdMini from './mdMini.html?raw'
 export * as ressource from './ressource.html?raw'
 export * as mdRender from './mdRender.html?raw'
 export * as svgRender from './svgRender.html?raw'
+
+export * as metaPreview from './metaPreview.html?raw'

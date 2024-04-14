@@ -23,27 +23,26 @@ export const ressource = {
       const content = async () => {
         if (!media.external) return description[lang]
         const res = await fetch(
-          'https://metaseur.vercel.app/api?url=' + media.external,
-          {
-            headers: {
-              'Content-Type': 'application/json',
-              'X-Requested-With': 'XMLHttpRequest',
-            },
-            mode: 'cors', // This should not be 'no-cors'
-          }
+          'https://metaseur.vercel.app/api?url=' + media.external
         )
 
         const mediaRaw = await res.json()
 
-        console.log(mediaRaw)
+        const tmplt = await kll.processTemplate('metaPreview')
 
-        return ''
+        kll.plugins.smartRender(tmplt, {
+          ...media,
+          ...mediaRaw,
+          title: media.title[lang] || media.title.fr,
+        })
+
+        return tmplt.innerHTML
       }
 
       kll.plugins.smartRender(template, {
         ...media,
         title: media.title[lang] || media.title.fr,
-        content: content(),
+        content: await content(),
       })
       el.appendChild(template)
     }
