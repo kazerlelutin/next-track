@@ -139,4 +139,9 @@ export const translation = {
     en: 'Description',
     ko: '설명',
   },
+  not_found: {
+    fr: 'Page non trouvée',
+    en: 'Page not found',
+    ko: '페이지를 찾을 수 없음',
+  },
 }

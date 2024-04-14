@@ -1,5 +1,6 @@
 import { kll, translateLsKey } from '../main'
 import gen from '../_gen/'
+import { getNotFound } from '../utils/getNotFound'
 
 export const sections = {
   async onInit(_, el) {
@@ -7,10 +8,12 @@ export const sections = {
     const source = gen.find(
       (s) => s.name === `${params.category}_${params.section}`
     )
-    if (!source) return // TODO 404
+    if (!source) return await getNotFound(el)
     const lang = localStorage.getItem(translateLsKey)
 
     const files = await source.file
+
+    if (files.length === 0) return await getNotFound(el)
     for (const file of files.filter((f) => {
       if (f.ext === 'md') {
         return f.lang === lang

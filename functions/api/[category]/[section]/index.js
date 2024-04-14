@@ -10,11 +10,12 @@ export async function onRequest(context) {
 
   if (!sec) return new Response('Not found', { status: 404 })
 
+  const files = await sec.file
   const result = {
     name: section,
     category,
     url: `${context.functionPath}`,
-    files: await sec.file.map((file) => ({
+    files: files.map((file) => ({
       name: file.name,
       section,
       category,

@@ -2,6 +2,7 @@ import { kll, translateLsKey } from '../main'
 import gen from '../_gen/'
 import { mdToHtml } from '../utils/md-to-html'
 import { extractMetaFromMd } from '../utils/extractMetaFromMd'
+import { getNotFound } from '../utils/getNotFound'
 
 export const ressource = {
   async onInit(_, el) {
@@ -9,12 +10,13 @@ export const ressource = {
     const source = gen.find(
       (s) => s.name === `${params.category}_${params.section}`
     )
-    if (!source) return // TODO 404
+
+    if (!source) return await getNotFound(el)
     const lang = localStorage.getItem(translateLsKey)
     const files = await source.file
     const media = files.find((file) => file.name === params.name)
 
-    if (!media) return
+    if (!media) return await getNotFound(el)
 
     if (media.ext === 'json') {
       const template = await kll.processTemplate('mdRender')

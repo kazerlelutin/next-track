@@ -15,6 +15,15 @@ export async function onRequest(context) {
 
   const find = sec.file.find((file) => file.name === name)
   if (!find) return new Response('Not found', { status: 404 })
+
+  if (find.ext === 'json') {
+    return new Response(JSON.stringify(find), {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+  }
+
   const media = {
     name,
     ext: find.ext,
