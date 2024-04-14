@@ -16,6 +16,24 @@ export async function onRequest(context) {
   const find = sec.file.find((file) => file.name === name)
   if (!find) return new Response('Not found', { status: 404 })
 
+  if (find.ext === 'svg') {
+    const data = { ...find.data }
+    if (data.description) {
+      Object.keys(data.description).forEach((key) => {
+        if (data.description[key] === null) return
+        data.description[key] = {
+          html: mdToHtml(data.description[key]),
+          markdown: data.description[key],
+        }
+      })
+    }
+    return new Response(JSON.stringify({ ...find, data }), {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+  }
+
   if (find.ext === 'json') {
     return new Response(JSON.stringify(find), {
       headers: {
@@ -35,7 +53,7 @@ export async function onRequest(context) {
 
   if (media.type === 'md') {
     const mds = sec.file.filter((s) => s.name === name)
-
+    media.langs = {}
     for (const md of mds) {
       media.langs[md.lang] = {
         html: mdToHtml(md.content),

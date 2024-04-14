@@ -34,6 +34,10 @@ export const ressource = {
         kll.plugins.smartRender(tmplt, {
           ...media,
           ...mediaRaw,
+          description:
+            mediaRaw.description ||
+            media.description[lang] ||
+            media.description.fr,
           title: media.title[lang] || media.title.fr,
         })
 
@@ -83,8 +87,9 @@ export const ressource = {
       kll.plugins.smartRender(template, {
         img: media.url,
         creator: mediaData.creator || '',
-        description:
-          mediaData.description[lang] || mediaData.description.fr || '',
+        description: mdToHtml(
+          mediaData.description[lang] || mediaData.description.fr || ''
+        ),
         name: mediaData.name || media.name,
       })
 

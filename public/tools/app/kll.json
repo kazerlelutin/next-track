@@ -1,0 +1,14 @@
+{
+  "title": {
+    "en": "KLL",
+    "fr": "KLL",
+    "kr": "KLL"
+  },
+  "description": {
+    "fr": "petite bibliothèque pour test js/html ou petite application",
+    "en": "small library for js / html test or little app",
+    "kr": "작은 라이브러리 js / html 테스트 또는 작은 앱"
+  },
+  "author": "kazerlelutin",
+  "external": "https://github.com/kazerlelutin/kll"
+}

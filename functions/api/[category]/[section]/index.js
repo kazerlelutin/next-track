@@ -1,4 +1,5 @@
 import imports from '../../../../_gen'
+import { mdToHtml } from '../../../../utils/md-to-html'
 
 export async function onRequest(context) {
   const {
@@ -11,17 +12,37 @@ export async function onRequest(context) {
   if (!sec) return new Response('Not found', { status: 404 })
 
   const files = await sec.file
+
+  const noDoubleFiles = files.filter(
+    (file, index, self) => index === self.findIndex((t) => t.name === file.name)
+  )
   const result = {
     name: section,
     category,
     url: `${context.functionPath}`,
-    files: files.map((file) => ({
-      name: file.name,
-      section,
-      category,
-      ...file,
-      url: `${context.functionPath}/${file.name}`,
-    })),
+    files: noDoubleFiles.map((file) => {
+      const newFile = { ...file }
+      if (file.type === 'md') {
+        const mds = files.filter((s) => s.name === file.name)
+        newFile.langs = {}
+        for (const md of mds) {
+          if (!md.lang) continue
+          newFile.langs[md.lang] = {
+            html: mdToHtml(md.content || ''),
+            markdown: md.content || '',
+            meta: md.data,
+          }
+        }
+      }
+
+      return {
+        name: file.name,
+        section,
+        category,
+        ...newFile,
+        url: `${context.functionPath}/${file.name}`,
+      }
+    }),
   }
 
   return new Response(JSON.stringify(result), {

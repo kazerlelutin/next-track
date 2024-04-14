@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "concurrently \"vite --host\" \"npx wrangler pages dev /functions\"",
-    "build": "node ./cli/generator.mjs &&  vite build"
+    "build": "node ./cli/generator.mjs &&  vite build",
+    "generate": "node ./cli/generator.mjs"
   },
   "repository": {
     "type": "git",

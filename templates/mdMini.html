@@ -1,10 +1,13 @@
 <template id="mdMini">
-    <div class="h-full">
+    <div class="">
         <a href="{{href}}" kll-ctrl="link"
             class="relative w-40 flex flex-col items-center justify-between border border-rd-link rounded p-2 h-full">
             <div class="text-sm font-bold dark:text-rd-pur text-rd-text z-1 pointer-events-none text-center">{{name}}
             </div>
-            <div class="text-sm italic pointer-events-none">{{description}}</div>
+            <div
+                class="text-xs text-center italic pointer-events-none normal-case dark:text-rd-highlight text-rd-urban_gray">
+                {{description}}
+            </div>
         </a>
     </div>
 </template>
