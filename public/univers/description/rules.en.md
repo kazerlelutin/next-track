@@ -1,6 +1,5 @@
 title: Rules of the Next Track Universe
 author: kazerlelutin
-
 ---
 
 ## What is Admitted :

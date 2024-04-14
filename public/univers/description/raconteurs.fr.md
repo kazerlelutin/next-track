@@ -1,0 +1,5 @@
+title: Les Raconteurs
+author: kazerlelutin
+---
+## Les Raconteurs: Voyageurs Temporels et Gardiens de Dimensions
+Les Raconteurs sont un groupe mystérieux de dix individus clonés, se renouvelant continuellement eux-mêmes pour préserver et transmettre la connaissance à travers les âges. Ils voyagent dans un vaisseau équipé d'un moteur à distorsion unique, le seul fonctionnel, leur permettant de naviguer à une vitesse équivalente à 100 fois celle de la lumière par la courbure de l'espace. Ainsi, un voyage vers Trappist, prenant normalement 140 ans, ne dure que cinq mois pour un Raconteur, tandis que les sociétés humaines évoluent considérablement entre leurs visites. Leur vaisseau, en plus de ses capacités de distorsion, permet aussi des interactions avec les Transiteurs du Supravers, offrant un accès potentiel à des planètes dans le même espace-temps. Cette capacité de naviguer entre les réalités fait des Raconteurs des conservateurs de l'histoire universelle, ainsi que des acteurs clés dans l'interaction entre les différentes dimensions de l'univers.
