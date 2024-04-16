@@ -32,8 +32,25 @@
     font-size: 1.8em;
   }
 
-  h2 {
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-weight: bold;
+    padding: 0;
+  }
+
+  h2 {
+    font-size: 1.5em;
+    color: theme('colors.rd.sagwa_young');
+  }
+
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: theme('colors.rd.highlight');
   }
 
   ul {

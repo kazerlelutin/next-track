@@ -1,5 +1,7 @@
 export function mdToHtml(markdown) {
   // Convert title tags
+  markdown = markdown.replace(/^##### (.*$)/gim, '<h5>$1</h5>')
+  markdown = markdown.replace(/^#### (.*$)/gim, '<h4>$1</h4>')
   markdown = markdown.replace(/^### (.*$)/gim, '<h3>$1</h3>')
   markdown = markdown.replace(/^## (.*$)/gim, '<h2>$1</h2>')
   markdown = markdown.replace(/^# (.*$)/gim, '<h1>$1</h1>')

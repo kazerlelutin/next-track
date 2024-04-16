@@ -144,4 +144,14 @@ export const translation = {
     en: 'Page not found',
     ko: '페이지를 찾을 수 없음',
   },
+  open_projects: {
+    fr: 'Projets en Libre Partage',
+    en: 'Open Sharing Projects',
+    ko: '공유 프로젝트',
+  },
+  scripts: {
+    fr: 'Scripts',
+    en: 'Scripts',
+    ko: '스크립트',
+  },
 }

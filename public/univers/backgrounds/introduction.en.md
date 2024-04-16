@@ -1,6 +1,5 @@
 title: Introduction
 author: kazerlelutin
-
 ---
 
 # Next Track Universe
