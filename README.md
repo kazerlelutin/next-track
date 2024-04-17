@@ -3,7 +3,7 @@ I'm Kazerlelutin.
 
 **⌨️ I'm a Javascript dev and 🎨 a gif creator.**
 
-You can see my work [here]([spac](https://kazerlelutin.space/)
+You can see my work [here](https://kazerlelutin.space/)
 
 ![gif](https://c.tenor.com/eZF5jNqx1-QAAAAj/pixel-pixel-art.gif)
 
