@@ -25,7 +25,7 @@ module.exports = {
         rd: {
           bg: '#ebeadd',
           text: '#000',
-          link: '#216632',
+          link: '#76B041',
           highlight: '#bdad00',
           sagwa_young: '#76B041',
           sagwa: '#FFC107',
