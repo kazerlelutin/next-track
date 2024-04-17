@@ -1,0 +1,2 @@
+name = "kazerlelutin"
+compatibility_flags = ["nodejs_compat"]

@@ -4,8 +4,9 @@
   "description": "medias'universe open source",
   "main": "index.js",
   "scripts": {
-    "dev": "concurrently \"vite\" \"npx wrangler pages dev /functions\"",
-    "build": "vite build"
+    "dev": "concurrently \"vite --host\" \"npx wrangler pages dev /functions\"",
+    "build": "node ./cli/generator.mjs &&  vite build",
+    "generate": "node ./cli/generator.mjs"
   },
   "repository": {
     "type": "git",
@@ -29,7 +30,7 @@
   },
   "homepage": "https://github.com/kazerlelutin/kazerlelutin#readme",
   "dependencies": {
-    "@kll_/basic": "^0.1.2",
+    "@kll_/basic": "^0.1.7",
     "@kll_/core": "^0.1.71",
     "@kll_/translate": "^0.1.4",
     "autoprefixer": "^10.4.19",

@@ -1,3 +1,4 @@
+const defaultTheme = require('tailwindcss/defaultTheme')
 module.exports = {
   darkMode: 'class',
   content: [
@@ -10,6 +11,10 @@ module.exports = {
     './utils/**/*.js',
   ],
   theme: {
+    screens: {
+      xs: '400px',
+      ...defaultTheme.screens,
+    },
     extend: {
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
@@ -20,21 +25,20 @@ module.exports = {
         rd: {
           bg: '#ebeadd',
           text: '#000',
-          link: "#216632",
-          highlight: "#bdad00",
-          sagwa_young: "#76B041",
-          sagwa: "#FFC107",
-          sagwa_old: "#D32F2F",
-          urban_gray: "#37474F",
-          sand: "#DDD5C1",
-          pur: "#ffffff",
-
+          link: '#76B041',
+          highlight: '#bdad00',
+          sagwa_young: '#76B041',
+          sagwa: '#FFC107',
+          sagwa_old: '#D32F2F',
+          urban_gray: '#37474F',
+          sand: '#DDD5C1',
+          pur: '#ffffff',
         },
         dark: {
           text: '#ebeadd',
           bg: '#000',
-          link: "#378C4C",
-          highlight: "#bfba1d",
+          link: '#378C4C',
+          highlight: '#bfba1d',
         },
       },
     },

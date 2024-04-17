@@ -7,14 +7,24 @@ export const returnButton = {
   },
   render(_, el) {
     const textEl = getByDataAttr(el, 'text')
-    const { route } = kll.parseRoute()
+    const { route, params } = kll.parseRoute()
 
-    const routeLength = route.split('/').length
-
-    if (route.match(/offskate|warmup/) && routeLength <= 2) {
-      el.href = '/'
-      textEl.setAttribute('data-trans', 'home')
-      kll.plugins.translate(textEl)
+    if (route.match(/category/)) {
+      if (params.section) {
+        el.href = `/`
+        textEl.setAttribute('data-trans', 'home')
+      }
     }
+
+    if (route.match(/ressource/)) {
+      el.href = `/category/${params.category}/${params.section}`
+      textEl.setAttribute('data-trans', params.section)
+    }
+
+    const arrow = el.querySelector('[data-arrow]')
+    textEl.setAttribute('href', el.href)
+    arrow.setAttribute('href', el.href)
+
+    kll.plugins.translate(textEl)
   },
 }

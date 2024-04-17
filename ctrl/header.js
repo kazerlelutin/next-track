@@ -1,13 +1,13 @@
 import { kll } from '../main'
 
 export const header = {
-  async onInit(_state, el) {
-    el.render()
-
-    const res = await fetch('/api/helloworld')
-    console.log(await res.text())
+  state: {
+    img: '',
   },
-  render(_state, el) {
+  async onInit(_, el) {
+    el.render()
+  },
+  render(_, el) {
     kll.plugins.translate(el)
   },
 }

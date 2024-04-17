@@ -1,0 +1,14 @@
+{
+  "title": {
+    "en": "Synfig",
+    "fr": "Synfig",
+    "kr": "Synfig"
+  },
+  "description": {
+    "fr": "Logiciel d'Animation 2D Open-Source",
+    "en": "Open-source 2D animation software",
+    "kr": "오픈소스 2D 애니메이션 소프트웨어"
+  },
+  "author": "https://github.com/synfig/synfig/graphs/contributors",
+  "external": "https://www.synfig.org/"
+}

@@ -1,0 +1,14 @@
+{
+  "title": {
+    "en": "Inkscape",
+    "fr": "Inkscape",
+    "kr": "Inkscape"
+  },
+  "description": {
+    "fr": "Inkscape est un logiciel de dessin vectoriel libre et open source.",
+    "en": "Inkscape is a free and open-source vector graphics editor.",
+    "kr": "Inkscape는 무료 오픈 소스 벡터 그래픽 편집기입니다."
+  },
+  "author": "https://inkscape.org/fr/credits",
+  "external": "https://inkscape.org/fr/"
+}
