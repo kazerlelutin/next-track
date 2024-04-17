@@ -154,4 +154,9 @@ export const translation = {
     en: 'Scripts',
     ko: '스크립트',
   },
+  pixel_art: {
+    fr: 'Pixel Art',
+    en: 'Pixel Art',
+    ko: '픽셀 아트',
+  },
 }

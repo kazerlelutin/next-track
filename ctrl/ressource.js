@@ -48,6 +48,7 @@ export const ressource = {
         ...media,
         title: media.title[lang] || media.title.fr,
         content: await content(),
+        url: media.external,
       })
       el.appendChild(template)
     }

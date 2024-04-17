@@ -3,7 +3,12 @@
         <div class="flex flex-col gap-3">
             <img src="{{image}}" class="w-full h-40 object-cover rounded-lg" alt="{{title}}">
             <div class="italic"> {{description}}</div>
-            <a href="{{external}}" rel="_noreferrer" target="_blank">{{title}}</a>
+            <div class="flex items-center justify-center">
+                <div class="p-2 border border-rd-sagwa_young text-center">
+                    <a href="{{external}}" rel="_noreferrer" target="_blank">{{title}}</a>
+                </div>
+            </div>
+
         </div>
     </div>
 </template>
