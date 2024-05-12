@@ -1,3 +1,5 @@
+import templates from '../_gen/templates'
+
 export const translation = {
   kofi: {
     fr: 'Payez-moi un café',
@@ -163,5 +165,10 @@ export const translation = {
     fr: 'Designs alternatifs',
     en: 'Alternate designs',
     ko: '대체 디자인',
+  },
+  templates: {
+    fr: 'Modèles',
+    en: 'Templates',
+    ko: '템플릿',
   },
 }
