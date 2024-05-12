@@ -1,5 +1,3 @@
-import templates from '../_gen/templates'
-
 export const translation = {
   kofi: {
     fr: 'Payez-moi un café',
