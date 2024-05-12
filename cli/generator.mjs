@@ -106,12 +106,14 @@ async function generate(folder) {
             if (filePath.endsWith('.svg') && content.match(/<svg/)) {
               const name = fileRec.name.replace('.svg', '')
 
+              const data = await extractDataFromSvg(filePath)
               files.push({
                 name,
+                title: data?.title || name,
                 fileName: name,
                 type: 'svg',
                 ext: 'svg',
-                data: await extractDataFromSvg(filePath),
+                data,
                 url: `/${folder}/${file.name}/${fileRec.name}`,
               })
             }

@@ -16,7 +16,10 @@ export const ressource = {
     const files = await source.file
     const media = files.find((file) => file.name === params.name)
 
-    if (!media) return await getNotFound(el)
+    if (!media) {
+      document.getElementById('return_button')?.remove()
+      return await getNotFound(el)
+    }
 
     if (media.ext === 'json') {
       const template = await kll.processTemplate('mdRender')
@@ -84,14 +87,13 @@ export const ressource = {
     if (media.type === 'svg') {
       const template = await kll.processTemplate('svgRender')
       const mediaData = media?.data || {}
-
       kll.plugins.smartRender(template, {
         img: media.url,
         creator: mediaData.creator || '',
         description: mdToHtml(
           mediaData.description[lang] || mediaData.description.fr || ''
         ),
-        name: mediaData.name || media.name,
+        name: media?.title || mediaData.name || media.name,
       })
 
       const { data } = kll.plugins.manageAttrs(

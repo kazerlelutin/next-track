@@ -8,7 +8,11 @@ export const sections = {
     const source = gen.find(
       (s) => s.name === `${params.category}_${params.section}`
     )
-    if (!source) return await getNotFound(el)
+    if (!source) {
+      document.getElementById('return_button')?.remove()
+      return await getNotFound(el)
+    }
+
     const lang = localStorage.getItem(translateLsKey)
 
     const files = await source.file
@@ -25,6 +29,7 @@ export const sections = {
         kll.plugins.smartRender(template, {
           ...file,
           href: `/ressource/${params.category}/${params.section}/${file.name}`,
+          name: file?.title || file.name,
           img: file.url,
         })
         el.appendChild(template)
