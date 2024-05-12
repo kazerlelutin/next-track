@@ -26,10 +26,13 @@ export const sections = {
     })) {
       if (file.ext === 'svg') {
         const template = await kll.processTemplate('svgMini')
+
+        console.log(file)
+
         kll.plugins.smartRender(template, {
           ...file,
           href: `/ressource/${params.category}/${params.section}/${file.name}`,
-          name: file?.title || file.name,
+          name: file.title[lang] || file.name,
           img: file.url,
         })
         el.appendChild(template)

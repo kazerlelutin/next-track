@@ -57,17 +57,32 @@ async function extractDataFromSvg(svg) {
   const document = dom.window.document
 
   const title = document.querySelector('dc\\:title')
+  const titles = document.querySelectorAll('dc\\:title')
   const creator = document.querySelector('dc\\:creator')
   const languages = document.querySelector('dc\\:language')
   const description = document.querySelector('dc\\:description')
   const subjects = document.querySelector('dc\\:subject')
 
+  const realTitles = Array.from(titles)?.find(
+    (title) => title.parentNode.nodeName !== 'cc:agent'
+  )
+
+  const translateTitle = parseLanguageSections(
+    '\n' + realTitles?.textContent?.trim()?.split('\\n').join('\n')
+  )
+
   return {
-    title: title.textContent,
-    creator: creator.textContent,
-    languages: languages.textContent,
-    description: parseLanguageSections(description.textContent),
-    subjects: subjects.innerHTML,
+    title:
+      Object.keys(translateTitle).length > 0
+        ? translateTitle
+        : {
+            fr: title?.textContent,
+            en: title?.textContent,
+          },
+    creator: creator?.textContent,
+    languages: languages?.textContent,
+    description: parseLanguageSections(description?.textContent),
+    subjects: subjects?.innerHTML,
   }
 }
 
