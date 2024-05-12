@@ -159,4 +159,14 @@ export const translation = {
     en: 'Pixel Art',
     ko: '픽셀 아트',
   },
+  alternate_designs: {
+    fr: 'Designs alternatifs',
+    en: 'Alternate designs',
+    ko: '대체 디자인',
+  },
+  templates: {
+    fr: 'Modèles',
+    en: 'Templates',
+    ko: '템플릿',
+  },
 }

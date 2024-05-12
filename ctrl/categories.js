@@ -40,6 +40,4 @@ export const categories = {
     el.remove()
     kll.reload(document.body) // because innerHTML
   },
-
-  render(_, el) {},
 }
