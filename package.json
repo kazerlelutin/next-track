@@ -31,7 +31,7 @@
   "homepage": "https://github.com/kazerlelutin/kazerlelutin#readme",
   "dependencies": {
     "@kll_/basic": "^0.1.7",
-    "@kll_/core": "^0.1.71",
+    "@kll_/core": "^0.1.89",
     "@kll_/translate": "^0.1.4",
     "autoprefixer": "^10.4.19",
     "concurrently": "^8.2.2",

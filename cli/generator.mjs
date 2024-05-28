@@ -113,7 +113,7 @@ async function generate(folder) {
           if (fileRec.isFile()) {
             const filePath = folderPath + '/' + fileRec.name
             const content = readFileSync(filePath, 'utf8')
-            const url = `/${folder}/${file.name}/${fileRec.name}`
+            const url = `${folder}/${file.name}/${fileRec.name}`
 
             console.log('file:', filePath)
 
