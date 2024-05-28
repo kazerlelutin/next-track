@@ -93,7 +93,7 @@ export const ressource = {
         description: mdToHtml(
           mediaData.description[lang] || mediaData.description.fr || ''
         ),
-        name: media?.title || mediaData.name || media.name,
+        name: mediaData?.title?.[lang] || media.name,
       })
 
       const { data } = kll.plugins.manageAttrs(
