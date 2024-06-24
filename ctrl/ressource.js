@@ -1,7 +1,6 @@
 import { kll, translateLsKey } from '../main'
 import gen from '../_gen/'
 import { mdToHtml } from '../utils/md-to-html'
-import { extractMetaFromMd } from '../utils/extractMetaFromMd'
 import { getNotFound } from '../utils/getNotFound'
 
 export const ressource = {
@@ -66,17 +65,14 @@ export const ressource = {
           if (b.lang === 'en' && a.lang !== 'en') return 1
           return 0
         })
-      let md = mds.find((md) => md.lang === lang)
+      const md = mds.find((md) => md.lang === lang)
       if (!md) md = mds[0]
 
-      const res = await fetch(md.url)
-      const mediaRaw = await res.text()
       const template = await kll.processTemplate('mdRender')
-      const { meta, content } = extractMetaFromMd(mediaRaw)
 
       kll.plugins.smartRender(template, {
-        content: mdToHtml(content),
-        author: meta?.author || '---',
+        content: mdToHtml(md.content),
+        author: md?.data?.author || '---',
         url: media.url,
         title: md?.data?.title || md.name,
       })

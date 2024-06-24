@@ -2,6 +2,8 @@ export function extractMetaFromMd(md) {
   const meta = {}
   const lines = md.split('\n')
 
+  console.log(lines)
+
   let i = 0
   for (i = 0; i < lines.length; i++) {
     const line = lines[i]
@@ -16,6 +18,8 @@ export function extractMetaFromMd(md) {
   }
 
   const content = lines.slice(i + 1).join('\n')
+
+  console.log(content)
 
   return {
     meta,

@@ -8,7 +8,7 @@ import {
 import path from 'path'
 import { JSDOM } from 'jsdom'
 
-export function extractMetaFromMd(md, url) {
+export function extractMetaFromMd(md) {
   const meta = {}
   const lines = md.split('\n')
 
