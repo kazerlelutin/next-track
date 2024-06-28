@@ -18,6 +18,7 @@ const params = {
   routes: {
     '/': import('./pages/index.html?raw').then((m) => m.default),
     '/about': import('./pages/about.html?raw').then((m) => m.default),
+    '/legal': import('./pages/legal.html?raw').then((m) => m.default),
     '/category/:category/:section': import('./pages/sections.html?raw').then(
       (m) => m.default
     ),
