@@ -217,6 +217,18 @@ async function generate(folder) {
     console.error('Erreur lors de la lecture du dossier:', error)
   }
 
+  const updatedDate = new Date()
+  const month = updatedDate.getMonth() + 1
+  const day = updatedDate.getDate()
+  const year = updatedDate.getFullYear()
+  const date = `${day}/${month}/${year}`
+
+  writeFileSync(
+    path.join(process.cwd(), `/${BASE_FOLDER}/updatedAt.json`),
+    `{"updatedAt":"${date}"}`,
+    'utf8'
+  )
+
   console.log('generate done')
 }
 

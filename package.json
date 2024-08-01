@@ -4,7 +4,7 @@
   "description": "medias'universe open source",
   "main": "index.js",
   "scripts": {
-    "dev": "concurrently \"vite --host\" \"npx wrangler pages dev /functions\"",
+    "dev": "npm run build && concurrently \"vite --host\" \"npx wrangler pages dev /functions\"",
     "build": "node ./cli/generator.mjs &&  vite build",
     "generate": "node ./cli/generator.mjs"
   },

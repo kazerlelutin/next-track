@@ -65,7 +65,7 @@ export const ressource = {
           if (b.lang === 'en' && a.lang !== 'en') return 1
           return 0
         })
-      const md = mds.find((md) => md.lang === lang)
+      let md = mds.find((md) => md.lang === lang)
       if (!md) md = mds[0]
 
       const template = await kll.processTemplate('mdRender')

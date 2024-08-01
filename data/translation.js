@@ -229,4 +229,19 @@ export const translation = {
     en: 'The site publisher cannot be held responsible for direct or indirect damages resulting from the use of the site or the inability to use the site. The publisher strives to provide accurate and up-to-date information but cannot guarantee the accuracy, completeness, or timeliness of the information on the site.',
     ko: '사이트 편집자는 사이트 사용 또는 사용 불가로 인한 직접적 또는 간접적 손해에 대해 책임을 지지 않습니다. 편집자는 정확하고 최신의 정보를 제공하기 위해 노력하지만 사이트의 정보가 정확성, 완전성 또는 시의성을 보장할 수 없습니다.',
   },
+  editorSite: {
+    fr: 'Éditeur du site',
+    en: 'Site editor',
+    ko: '사이트 편집자',
+  },
+  'updated-at': {
+    fr: 'Mis à jour le',
+    en: 'Updated at',
+    ko: '업데이트',
+  },
+  version: {
+    fr: 'Version',
+    en: 'Version',
+    ko: '버전',
+  },
 }
