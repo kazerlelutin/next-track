@@ -1,9 +1,10 @@
 import { kll } from '../main'
+import { displayReturnBtn } from '../utils/displayReturnBtn'
 import { getByDataAttr } from '../utils/getByDataAttr'
 
 export const returnButton = {
-  onInit(_, el) {
-    el.render()
+  async onInit(_, el) {
+    await el.render()
   },
   render(_, el) {
     const textEl = getByDataAttr(el, 'text')
@@ -26,5 +27,6 @@ export const returnButton = {
     arrow.setAttribute('href', el.href)
 
     kll.plugins.translate(textEl)
+    displayReturnBtn()
   },
 }

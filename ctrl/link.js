@@ -1,9 +1,12 @@
 import { kll } from '../main.js'
+import { displayReturnBtn } from '../utils/displayReturnBtn.js'
+
 export const link = {
-  onClick(_, el, e) {
+  async onClick(_, el, e) {
     e.preventDefault()
     const path = el.getAttribute('href')
     window.history.pushState({}, '', path)
-    kll.injectPage(path)
+    await kll.injectPage(path)
+    displayReturnBtn()
   },
 }
