@@ -1,0 +1,12 @@
+<template id="babelFishLayout">
+    <div class="relative h-full w-full">
+        <div class="absolute inset-0 flex flex-col gap-2">
+            <nav kll-t="headerMenuBabelFish" kll-ctrl="translate"></nav>
+            <main class="h-full relative flex-1">
+                <div class="inset-0 absolute overflow-hidden">
+                    <slot></slot>
+                </div>
+            </main>
+        </div>
+    </div>
+</template>

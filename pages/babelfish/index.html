@@ -1,0 +1,27 @@
+<div kll-t="basicLayout">
+  <div kll-t="babelFishLayout">
+    <div class="gap-2 flex flex-col items-center h-full overflow-hidden">
+      <div class="h-full w-full max-w-[600px]">
+        <div kll-tc="tabs" data-active="read" kll-l class='h-full flex flex-col' kll-id="read-tabs">
+          <div kll-ctrl="editor" kll-id="editor" class='h-full'>
+            <div data-tabs="read" class="relative h-full">
+              <div class="absolute inset-0 flex flex-col" kll-tc="readDoc" kll-b="editor.content,editor.updateAt"
+                kll-id="readDoc">
+              </div>
+            </div>
+            <div data-tabs="edit" class="h-full relative">
+              <div id="editorContainer" class="overflow-y-auto overflow-x-hidden absolute inset-0 p-3">
+              </div>
+            </div>
+            <div data-tabs="params" class="h-full w-full">
+              <div class="flex p-3 justify-center w-full">
+
+                <div kll-tc="delDocBtn" kll-m="confirmDialog"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

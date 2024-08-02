@@ -10,8 +10,16 @@ import { translation } from './data/translation.js'
 import { lsKEY } from './ctrl/rupteur.js'
 
 // TRANSLATE ========================
+export const defaultLang = window.navigator.language.split('-')[0]
 export const translateLsKey = '__kazerlelutin__lang'
 localStorage.setItem(translateLsKey, window.navigator.language.split('-')[0])
+
+// BABELFISH ========================
+export const defaultLangWordKey = '__kllbalelfish__defaultLangWord'
+export const cookieConsentKey = '__kllbalelfish__cookieConsent'
+
+if (localStorage.getItem(cookieConsentKey) === 'consent')
+  localStorage.setItem(translateLsKey, defaultLang)
 
 const params = {
   id: 'app',
@@ -25,6 +33,27 @@ const params = {
     '/ressource/:category/:section/:name': import(
       './pages/ressource.html?raw'
     ).then((m) => m.default),
+    '/consent': import('./pages/consent.html?raw').then((m) => m.default),
+
+    // BABELFISH
+
+    '/babelfish': import('./pages/babelfish/index.html?raw').then(
+      (m) => m.default
+    ),
+    '/babelfish-sync': import('./pages/babelfish/sync.html?raw').then(
+      (m) => m.default
+    ),
+
+    '/babelfish-words': import('./pages/babelfish/words.html?raw').then(
+      (m) => m.default
+    ),
+
+    '/babelfish-docs': import('./pages/babelfish/docs.html?raw').then(
+      (m) => m.default
+    ),
+    '/babelfish-doc/:id': import('./pages/babelfish/index.html?raw').then(
+      (m) => m.default
+    ),
   },
   plugins: [
     CreateComponentPlugin,
@@ -46,6 +75,10 @@ export const kll = new KLL(params)
 
 addEventListener('DOMContentLoaded', () => {
   kll.plugins.translate()
+  if (localStorage.getItem(cookieConsentKey) !== 'consent') {
+    window.history.pushState({}, '', '/consent')
+    kll.injectPage('/consent')
+  }
 })
 
 // Prevent the flash of the dark theme

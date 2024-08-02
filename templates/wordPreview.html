@@ -1,0 +1,24 @@
+<template id="wordPreview">
+    <div class="border-t border-dark-highlight p-3 text-base">
+        <div class="flex justify-end w-full">
+            <div kll-tc="wordPreviewClose" kll-id="wordPreviewClose"></div>
+        </div>
+        <div class="flex flex-col gap-2">
+            <div class="text-xl bold first-letter:uppercase text-rd-sagwa_young">
+                {{word}}
+            </div>
+            <div class="text-lg text-rd-highlight">
+                <div kll-tc="transTest" kll-s-word="{{word}}" kll-id="w-{{word}}-{{translation}}"></div>
+                <input data-hidden value="{{translation}}" placeholder="{{placeholder}}" id="wordTranslation"
+                    class="bg-transparent outline-none border p-1 border-t-transparent border-l-transparent border-r-transparent border-b-rd-urban_gray w-full focus:border-rd-highlight" />
+            </div>
+            <div kll-t="langSelector" kll-m="langSelector" kll-ctrl="wordLangSelector" kll-s-word="{{word}}"
+                kll-s-defaultValue="{{lang}}" kll-id="lang-sel-{{word}}-{{lang}}"></div>
+            <div class="hidden">
+                {{info}}
+            </div>
+            <div class="flex gap-3 justify-center p-2" id="wordActions">
+            </div>
+        </div>
+    </div>
+</template>
