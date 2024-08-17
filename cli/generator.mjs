@@ -184,12 +184,16 @@ async function generate(folder) {
           'utf8'
         )
 
+        const filesCover = files.filter((f) => {
+          return !!f?.ext.match(/svg|png|jpg|webp|gif|tiff/) && f?.name
+        })
+
         folderToExport.push({
           name: file.name,
           files: `import('./${fileName}').then((m) => m.default)`,
           cover:
-            files.length > 0
-              ? `"/${folder}/${file.name}/${files[0].name}.${files[0].ext}"`
+            filesCover.length > 0
+              ? `"/${folder}/${file.name}/${filesCover[0].name}.${filesCover[0].ext}"`
               : 'null',
         })
       }
@@ -264,7 +268,7 @@ async function start() {
   const files = readdirSync(directoryPath, { withFileTypes: true })
 
   for (const file of files) {
-    if (file.isDirectory()) {
+    if (file.isDirectory() && file.name) {
       await generate(file.name)
     }
   }

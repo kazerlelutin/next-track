@@ -18,12 +18,25 @@ export const sections = {
     const files = await source.file
 
     if (files.length === 0) return await getNotFound(el)
-    for (const file of files.filter((f) => {
-      if (f.ext === 'md') {
-        return f.lang === lang
-      }
-      return true
-    })) {
+    for (const file of files
+      .sort((a, b) => {
+        if (a.ext === 'md' && b.ext === 'md') {
+          return a.name.localeCompare(b.name)
+        }
+        if (a.ext === 'md' && b.ext !== 'md') {
+          return 1
+        }
+        if (a.ext !== 'md' && b.ext === 'md') {
+          return -1
+        }
+        return 0
+      })
+      .filter((f) => {
+        if (f.ext === 'md') {
+          return f.lang === lang
+        }
+        return true
+      })) {
       if (file.ext === 'svg') {
         const template = await kll.processTemplate('svgMini')
 

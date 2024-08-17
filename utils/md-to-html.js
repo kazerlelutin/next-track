@@ -25,8 +25,10 @@ export function mdToHtml(markdown) {
   // Convert lists (unordered and ordered)
   markdown = markdown.replace(/^\* (.*$)/gim, '<li>$1</li>')
   markdown = markdown.replace(/^\d+\.\s+(.*$)/gim, '<li>$1</li>')
+
+  // Handle wrapping <li> elements inside <ul> or <ol>
   markdown = markdown.replace(/(<li>.*<\/li>)/gim, (m) => {
-    const tag = m.startsWith('<li>1.') ? 'ol' : 'ul'
+    const tag = /^\d+\.\s/.test(m) ? 'ol' : 'ul'
     return `<${tag}>${m}</${tag}>`
   })
 
@@ -40,14 +42,24 @@ export function mdToHtml(markdown) {
   // Convert horizontal rules
   markdown = markdown.replace(/^\-{3,}$/gm, '<hr />')
 
-  // Convert paragraphs
+  // Preserve line breaks within paragraphs (without affecting block elements)
   markdown = markdown
-    .split(/\n\n/)
-    .map((paragraph) => `<p>${paragraph.trim()}</p>`)
-    .join('\n')
+    .split(/\n/)
+    .map((line) => {
+      // Handle empty lines as intentional line breaks
+      if (line.trim().length === 0) return '<br />'
 
-  // Convert line breaks
-  markdown = markdown.replace(/\n/gim, '<br />')
+      // Skip adding <p> tags to block-level elements
+      if (
+        /^(<h\d|<ul|<ol|<pre|<blockquote|<hr|<img|<code|<li>)/.test(line.trim())
+      ) {
+        return line.trim()
+      }
+
+      // Otherwise, wrap in <p> tags
+      return `<p>${line.trim()}</p>`
+    })
+    .join('\n')
 
   return markdown
 }
