@@ -1,13 +1,18 @@
-import { switchClasses } from '../utils/switchClasses'
+const ATTRS = 'data-menu-open'
+const LS = 'kll-' + ATTRS
 
 export const hamburger = {
-  onClick() {
-    const menu = document.getElementById('menu-desktop')
+  onInit() {
+    const menu = document.getElementById('menuPanel')
     if (!menu) return
-    const classes = menu.classList
-
-    if (classes.contains('-left-full'))
-      switchClasses(menu, 'left-0', '-left-full')
-    else switchClasses(menu, '-left-full', 'left-0')
+    const open = localStorage.getItem(LS)
+    menu.setAttribute(ATTRS, open ? open : 'true')
+  },
+  onClick() {
+    const menu = document.getElementById('menuPanel')
+    if (!menu) return
+    const newValue = menu.getAttribute(ATTRS) === 'true' ? 'false' : 'true'
+    localStorage.setItem(LS, newValue)
+    menu.setAttribute(ATTRS, newValue)
   },
 }

@@ -1,0 +1,8 @@
+<template id="menuPanel">
+    <div class="flex gap-2 relative h-full transition-all" data-menu-open="true">
+        <div class="absolute inset-0 p-2 text-sm" id="panel-menu">
+            <nav kll-t="menu" kll-ctrl="translate" id="menu"></nav>
+            <div class="flex flex-col gap-2 mt-4" id="ctx-menu" kll-ctrl="ctxMenu"></div>
+        </div>
+    </div>
+</template>
