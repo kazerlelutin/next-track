@@ -96,11 +96,11 @@ async function generate(folder) {
   const directoryPath = path.join(process.cwd(), '/public/' + folder)
 
   try {
-    const files = readdirSync(directoryPath, { withFileTypes: true })
+    const filesDir = readdirSync(directoryPath, { withFileTypes: true })
 
     const folderToExport = []
 
-    for (const file of files) {
+    for (const file of filesDir) {
       if (file.isDirectory()) {
         const folderPath = path.join(directoryPath, file.name)
         const filesRec = readdirSync(file.path + '/' + file.name, {
@@ -108,6 +108,8 @@ async function generate(folder) {
         })
 
         const files = []
+
+        if (filesRec.length === 0) continue
 
         for (const fileRec of filesRec) {
           if (fileRec.isFile()) {

@@ -28,6 +28,8 @@ export const categories = {
 
       const files = await cat.file
 
+      console.log(files)
+
       const sections = document.createElement('div')
       for (const file of files) {
         const miniature = await kll.processTemplate('miniature')

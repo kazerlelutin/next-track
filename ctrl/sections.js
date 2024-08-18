@@ -21,14 +21,15 @@ export const sections = {
     for (const file of files
       .sort((a, b) => {
         if (a.ext === 'md' && b.ext === 'md') {
+          const indexA = parseInt(a?.data?.index || '1000', 10)
+          const indexB = parseInt(b?.data?.index || '1000', 10)
+
+          if (indexA !== indexB) return indexA - indexB
           return a.name.localeCompare(b.name)
         }
-        if (a.ext === 'md' && b.ext !== 'md') {
-          return 1
-        }
-        if (a.ext !== 'md' && b.ext === 'md') {
-          return -1
-        }
+
+        if (a.ext === 'md' && b.ext !== 'md') return -1
+        if (a.ext !== 'md' && b.ext === 'md') return 1
         return 0
       })
       .filter((f) => {

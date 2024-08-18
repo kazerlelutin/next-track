@@ -550,4 +550,39 @@ export const translation = {
     fr: 'Cours de coréen',
     en: 'Korean course',
   },
+  next_track: {
+    fr: 'Next Track',
+    en: 'Next Track',
+    ko: 'Next Track',
+  },
+  recipes: {
+    fr: 'Recettes',
+    en: 'Recipes',
+    ko: '레시피',
+  },
+  preparations: {
+    fr: 'Préparations',
+    en: 'Preparations',
+    ko: '준비물',
+  },
+  desserts: {
+    fr: 'Desserts',
+    en: 'Desserts',
+    ko: '디저트',
+  },
+  banchan: {
+    fr: '반찬',
+    en: 'Banchan',
+    ko: '반찬',
+  },
+  main_dishes: {
+    fr: 'Plats principaux',
+    en: 'Main dishes',
+    ko: '주요 요리',
+  },
+  starters: {
+    fr: 'Entrées',
+    en: 'Starters',
+    ko: '전채',
+  },
 }
