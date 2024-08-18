@@ -5,12 +5,10 @@
       <div kll-tc="returnButton"></div>
     </div>
     <main kll-ctrl="translate">
-      <div class="h-full grid grid-cols-[auto_1fr] relative">
+      <div class="h-full w-full relative overflow-hidden">
         <nav kll-t="menuPanel" kll-ctrl="translate" id="menuPanel"></nav>
-        <div class="relative h-full overflow-hidden main-content">
-          <div class="inset-0 absolute overflow-y-auto">
-            <slot></slot>
-          </div>
+        <div class="inset-0 absolute overflow-y-auto main-content" id="main-content">
+          <slot></slot>
         </div>
       </div>
     </main>

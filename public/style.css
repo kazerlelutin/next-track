@@ -19,6 +19,16 @@
   --color-recognized: #d15796;
   --color-known: #4caf50;
   --color-learning: #ca9849;
+
+  --margin-with-menu: 0rem;
+}
+
+.open {
+  --margin-with-menu: 10rem;
+}
+
+.close {
+  --margin-with-menu: 0;
 }
 
 .light {
@@ -482,6 +492,30 @@ h6 {
   @apply w-0 p-0 -left-full opacity-0 pointer-events-none;
 }
 
+.main-content {
+  @apply transition-all duration-300 ease-in-out;
+  left: 0rem;
+}
+
+.categories {
+  @apply transition-all duration-300 ease-in-out;
+  left: var(--margin-with-menu);
+}
+
+@media screen and (max-width: 900px) {
+  .main-content {
+    left: 10rem;
+  }
+
+  .close .categories {
+    left: 0rem;
+  }
+}
+
+a[aria-current='page'] {
+  @apply text-rd-highlight;
+}
+
 @media screen and (max-width: 640px) {
   [data-menu-open='false'] ~ .main-content > div {
     @apply transition-all duration-500 ease-in-out;
@@ -489,6 +523,24 @@ h6 {
 
   [data-menu-open='true'] ~ .main-content > div {
     @apply w-[100dvw] opacity-15 pointer-events-none transition-all duration-100 ease-in-out;
+  }
+
+  .open .main-content {
+    left: 10rem;
+    right: -10rem;
+  }
+
+  .open .categories {
+    opacity: 0.5;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  .close .categories {
+    left: 0;
+    right: 0;
   }
 }
 

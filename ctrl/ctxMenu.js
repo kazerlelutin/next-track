@@ -13,12 +13,18 @@ export const ctxMenu = {
     const panelMenuEl = document.getElementById('panel-menu')
     const route = _route.split('/')[1]
 
+    if (!route) {
+      const mainEl = document.getElementById('main-content')
+      if (mainEl) {
+        mainEl.classList.remove('main-content')
+      }
+    }
+
     if (panelMenuEl) {
       const links = panelMenuEl.querySelectorAll('a')
       links.forEach((link) => {
         const cleanUri = link.href.split('//')[1]
         const linkRoute = cleanUri.split('/')[1]
-        console.log('linkRoute', linkRoute, 'route', route)
         if (
           (!linkRoute && !route) ||
           linkRoute === route ||
