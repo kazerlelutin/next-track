@@ -6,7 +6,10 @@ export const hamburger = {
     const menu = document.getElementById('menuPanel')
     if (!menu) return
     const open = localStorage.getItem(LS)
-    menu.setAttribute(ATTRS, open ? open : 'true')
+    menu.setAttribute(
+      ATTRS,
+      open ? open : window.innerWidth > 640 ? 'true' : 'false'
+    )
   },
   onClick() {
     const menu = document.getElementById('menuPanel')
