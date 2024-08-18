@@ -16,34 +16,37 @@ author: kazerlelutin
 
 ### For the Batter
 
-1. **Mix** :
-   - The melted butter with the sugar using a spatula.
+#### Mix
+- The melted butter with the sugar using a spatula.
 
-2. **Add** :
-   - The lemon zest and juice 🍋
-   - **Mix** 🌀
+#### Add
+- The lemon zest and juice 🍋
 
-3. **Add** :
-   - The flour and baking powder 🌾🧪
-   - **Mix** 🌀
+####  Mix 🌀
 
-4. **Add** :
-   - The beaten eggs 🥚
-   - **Mix** 🌀
+####  Add
+- The flour and baking powder 🌾🧪
 
-5. **Let the batter rest** :
-   - For at least 6 hours 🕒❄️
+#### Mix 🌀
+
+#### Add
+- The beaten eggs 🥚
+
+#### Mix 🌀
+
+#### Let the batter rest
+- For at least 6 hours 🕒❄️
 
 ### For Baking
 
-1. **Prepare the mold** :
-   - Grease and sugar the mold 🧈🍚
+#### Prepare the mold
+- Grease and sugar the mold 🧈🍚
 
-2. **Bake** :
-   - In a preheated oven at **170°C** for **35 to 40 minutes** 🕒🔥
+####  Bake
+- In a preheated oven at **170°C** for **35 to 40 minutes** 🕒🔥
 
-3. **Check the baking** :
-   - Using the tip of a knife 🔪
+#### Check the baking
+- Using the tip of a knife 🔪
 
-4. **Unmold while hot** :
-   - Let cool in plastic wrap 🧻❄️
+#### Unmold while hot
+- Let cool in plastic wrap 🧻❄️

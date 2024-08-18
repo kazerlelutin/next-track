@@ -85,8 +85,16 @@
     color: theme('colors.rd.sagwa_young');
   }
 
-  h3,
-  h4,
+  h3 {
+    font-size: 1.2em;
+    color: theme('colors.rd.sagwa');
+  }
+
+  h4 {
+    font-size: 1em;
+    color: theme('colors.rd.sagwa_young');
+  }
+
   h5,
   h6 {
     color: theme('colors.rd.highlight');
@@ -94,7 +102,7 @@
 
   ul {
     list-style-type: square;
-    margin: 5px 0 30px 0;
+    margin: 5px 0 10px 0;
     padding-left: 25px;
   }
 

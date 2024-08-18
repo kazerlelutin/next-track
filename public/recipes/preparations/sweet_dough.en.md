@@ -14,20 +14,20 @@ author: kazerlelutin
 
 ## 👩‍🍳 Steps
 
-1. **Add** :
-   - 240 g of flour 🌾
-   - 75 g of powdered sugar 🍚
-   - 50 g of brown sugar 🍬
-   - 25 g of almond powder 🌰
-   - 1 teaspoon of salt 🧂
+#### Add
+- 240 g of flour 🌾
+- 75 g of powdered sugar 🍚
+- 50 g of brown sugar 🍬
+- 25 g of almond powder 🌰
+- 1 teaspoon of salt 🧂
 
-   **Mix** 🌀
+#### Mix 🌀
 
-2. **Add** :
-   - 125 g of butter 🧈
-   - 1 egg 🥚
+#### Add
+- 125 g of butter 🧈
+- 1 egg 🥚
 
-   **Mix** 🌀
+#### Mix 🌀
 
-3. **Chill** :
-   - Let the dough rest for 2 hours in the refrigerator 🕒❄️
+#### Chill
+- Let the dough rest for 2 hours in the refrigerator 🕒❄️

@@ -22,16 +22,6 @@ export function mdToHtml(markdown) {
     '<img src="$2" alt="$1" />'
   )
 
-  // Convert lists (unordered and ordered)
-  markdown = markdown.replace(/^\* (.*$)/gim, '<li>$1</li>')
-  markdown = markdown.replace(/^\d+\.\s+(.*$)/gim, '<li>$1</li>')
-
-  // Handle wrapping <li> elements inside <ul> or <ol>
-  markdown = markdown.replace(/(<li>.*<\/li>)/gim, (m) => {
-    const tag = /^\d+\.\s/.test(m) ? 'ol' : 'ul'
-    return `<${tag}>${m}</${tag}>`
-  })
-
   // Convert code
   markdown = markdown.replace(/```(.*?)```/gs, '<pre><code>$1</code></pre>')
   markdown = markdown.replace(/`(.*?)`/g, '<code>$1</code>')
@@ -42,9 +32,12 @@ export function mdToHtml(markdown) {
   // Convert horizontal rules
   markdown = markdown.replace(/^\-{3,}$/gm, '<hr />')
 
+  // Convert lists (unordered and ordered)
+  markdown = convertLists(markdown)
+
   // Preserve line breaks within paragraphs (without affecting block elements)
   markdown = markdown
-    .split(/\n/)
+    .split(/\n+/)
     .map((line) => {
       // Handle empty lines as intentional line breaks
       if (line.trim().length === 0) return '<br />'
@@ -62,4 +55,61 @@ export function mdToHtml(markdown) {
     .join('\n')
 
   return markdown
+}
+
+// Helper function to convert lists with support for nested lists
+function convertLists(markdown) {
+  const lines = markdown.split('\n')
+  let html = ''
+  let listStack = []
+  let currentIndent = 0
+
+  const pushList = (isOrdered) => {
+    const listTag = isOrdered ? 'ol' : 'ul'
+    listStack.push(listTag)
+    html += `<${listTag}>`
+  }
+
+  const popList = () => {
+    const listTag = listStack.pop()
+    html += `</${listTag}>`
+  }
+
+  lines.forEach((line) => {
+    const unorderedMatch = /^(\s*)-\s+(.*)/.exec(line)
+    // format 1. 2.
+    const orderedMatch = /^(\s*)\d+\.\s+(.*)/.exec(line)
+
+    if (unorderedMatch || orderedMatch) {
+      const indentLevel = (unorderedMatch ? unorderedMatch[1] : orderedMatch[1])
+        .length
+      const isOrdered = !!orderedMatch
+      const content = unorderedMatch ? unorderedMatch[2] : orderedMatch[2]
+
+      if (indentLevel > currentIndent) {
+        pushList(isOrdered)
+      } else if (indentLevel < currentIndent) {
+        while (currentIndent > indentLevel) {
+          popList()
+          currentIndent -= 2 // Adjust for indentation
+        }
+      }
+
+      currentIndent = indentLevel
+      html += `<li>${content}</li>`
+    } else {
+      // If we encounter a non-list line, close any open lists
+      while (listStack.length > 0) {
+        popList()
+      }
+      html += line.trim() ? `<p>${line.trim()}</p>` : ''
+    }
+  })
+
+  // Close any remaining open lists
+  while (listStack.length > 0) {
+    popList()
+  }
+
+  return html
 }
