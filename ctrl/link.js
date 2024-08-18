@@ -7,6 +7,10 @@ export const link = {
     const path = el.getAttribute('href')
     window.history.pushState({}, '', path)
     await kll.injectPage(path)
+
+    const menu = document.getElementById('menuPanel')
+    if (!menu) return
+
     displayReturnBtn()
   },
 }

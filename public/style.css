@@ -538,6 +538,7 @@ a[aria-current='page'] {
     pointer-events: none;
   }
 
+  .close .main-content,
   .close .categories {
     left: 0;
     right: 0;

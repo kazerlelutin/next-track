@@ -11,6 +11,13 @@ export const hamburger = {
     const isOpen = open || window.innerWidth > 640 ? 'true' : 'false'
     menu.setAttribute(ATTRS, isOpen)
 
+    if (window.innerWidth < 640) {
+      localStorage.setItem(LS, 'false')
+      menu.setAttribute(ATTRS, 'false')
+      switchClasses(document.documentElement, 'close', 'open')
+      return
+    }
+
     if (isOpen === 'true') {
       switchClasses(document.documentElement, 'open', 'close')
     } else {
