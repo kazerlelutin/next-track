@@ -585,4 +585,14 @@ export const translation = {
     en: 'Starters',
     ko: '전채',
   },
+  korean: {
+    fr: 'Coréen',
+    en: 'Korean',
+    ko: '한국어',
+  },
+  logo: {
+    fr: 'Logo',
+    en: 'Logo',
+    ko: '로고',
+  },
 }

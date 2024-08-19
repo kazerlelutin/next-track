@@ -13,11 +13,13 @@ export const categories = {
   async onInit(_, el) {
     const container = document.createElement('div')
     for (const cat of [
+      ...gen
+        .filter((s) => s.name.includes('menu-'))
+        .sort((a, b) => b.name.localeCompare(a.name)),
       {
         name: 'tools',
         file: INTERNAL_APPS,
       },
-      ...gen.filter((s) => s.name.includes('menu-')),
     ]) {
       const catName = cat.name.split('menu-')[1] || cat.name
       const catEl = await kll.processTemplate('category')
@@ -27,8 +29,6 @@ export const categories = {
       })
 
       const files = await cat.file
-
-      console.log(files)
 
       const sections = document.createElement('div')
       for (const file of files) {
