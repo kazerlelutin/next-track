@@ -405,7 +405,7 @@ video.object-cover {
   scrollbar-width: none; /* Firefox */
 }
 
-[data-hide]:not(data-hide='false') {
+[data-hide]:not([data-hide='false']) {
   display: none;
 }
 
@@ -500,6 +500,10 @@ h6 {
   @apply w-0 p-0 -left-full opacity-0 pointer-events-none;
 }
 
+[data-external='true']:after {
+  content: ' ↗';
+}
+
 .main-content {
   @apply transition-all duration-300 ease-in-out;
   left: 0rem;
@@ -510,7 +514,7 @@ h6 {
   left: var(--margin-with-menu);
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 905px) {
   .main-content {
     left: 10rem;
   }

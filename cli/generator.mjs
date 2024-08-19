@@ -96,11 +96,11 @@ async function generate(folder) {
   const directoryPath = path.join(process.cwd(), '/public/' + folder)
 
   try {
-    const filesDir = readdirSync(directoryPath, { withFileTypes: true })
+    const files = readdirSync(directoryPath, { withFileTypes: true })
 
     const folderToExport = []
 
-    for (const file of filesDir) {
+    for (const file of files) {
       if (file.isDirectory()) {
         const folderPath = path.join(directoryPath, file.name)
         const filesRec = readdirSync(file.path + '/' + file.name, {
@@ -116,8 +116,6 @@ async function generate(folder) {
             const filePath = folderPath + '/' + fileRec.name
             const content = readFileSync(filePath, 'utf8')
             const url = `${folder}/${file.name}/${fileRec.name}`
-
-            console.log('file:', filePath)
 
             // SVG ----------------------------------------------
             if (filePath.endsWith('.svg') && content.match(/<svg/)) {

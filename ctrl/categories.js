@@ -1,13 +1,6 @@
 import gen from '../_gen/'
 import { kll } from '../main'
-
-const INTERNAL_APPS = [
-  {
-    name: 'Babel Fish',
-    path: 'babelfish',
-    cover: 'sources/misc/babel_fish.svg',
-  },
-]
+import { INTERNAL_APPS } from '../utils/constants'
 
 export const categories = {
   async onInit(_, el) {
