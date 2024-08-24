@@ -1,44 +1,74 @@
-title: Carrot cake
+title: Carrot Cake
 author: kazerlelutin
---- 
+date: 2024-08-24
+---
 
-## Ingredients
+## 📝 Ingredients
 
-- 300g flour
-- 150g sugar
-- 100g brown sugar
-- 1 packet of baking powder
-- 1 teaspoon of cinnamon
-- 18cl olive oil
-- 500g grated carrots
-- 4 eggs
-- A pinch of salt
-- 50g walnuts
-- Cream cheese frosting
+- 300g flour 🌾
+- 150g sugar 🍚
+- 100g brown sugar 🍯
+- 1 packet of baking powder 🧪
+- 1 teaspoon of cinnamon 🌿
+- 18cl olive oil 🫒
+- 500g grated carrots 🥕
+- 4 eggs 🥚
+- A pinch of salt 🧂
+- 50g walnuts 🌰
+- Cream cheese frosting 🧀
 
-- 160g powdered sugar
-- 120g soft butter
-- 120g cream cheese
+## 👩‍🍳 Preparation
 
-## Steps
+### For the batter
 
-1. **Grate** 500g of carrots.
-2. **Crush** 50g of walnuts.
-3. **Mix** in a bowl the sugar, brown sugar, and eggs.
-4. Add the flour, baking powder, cinnamon, olive oil, then the grated carrots and walnuts.
-5. **Pour** the mixture into a 31 cm cake pan.
-6. **Bake** in a preheated oven at 180°C for about 45 minutes.
-7. Let cool before unmolding.
+#### Grate
+- The carrots 🥕
 
-## Cream Cheese Frosting
+#### Crush
+- The walnuts 🌰
 
-### Steps
+#### Mix 🌀
+- The sugar, brown sugar, and eggs 🥚 in a bowl.
 
-1. **Add** 160g of powdered sugar to the soft butter.
-2. **Mix** well.
-3. **Add** 120g of cream cheese.
-4. **Whisk** until smooth.
+#### Add
+- The flour, baking powder, cinnamon, and olive oil 🫒.
 
-## Finishing
+#### Mix 🌀
+- Then add the grated carrots and walnuts 🌰.
 
-1. Once the cake is cool, spread the cream cheese frosting on the cake.
+### For the baking
+
+#### Pour
+- The mixture into a 31 cm cake pan.
+
+#### Bake
+- Bake in a preheated oven at **180°C** for **45 minutes** 🕒🔥.
+
+#### Let cool
+- Before unmolding ❄️.
+
+### For the cream cheese frosting
+
+#### 📝 Ingredients
+
+- 160g powdered sugar 🍚
+- 120g soft butter 🧈
+- 120g cream cheese 🧀
+
+### Frosting Preparation
+
+#### Add
+- The powdered sugar to the soft butter 🧈.
+
+#### Mix 🌀
+
+#### Add
+- The cream cheese 🧀.
+
+#### Whisk
+- Until smooth consistency 🌀.
+
+### Finishing
+
+#### Spread
+- The cream cheese frosting on the cooled cake 🎂❄️.

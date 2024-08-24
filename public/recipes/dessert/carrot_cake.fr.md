@@ -1,43 +1,74 @@
-title: Carrot cake
+title: Carrot Cake
 author: kazerlelutin
---- 
+date: 2024-08-24
+---
 
-## Ingrédients
+## 📝 Ingrédients
 
-- 300g de farine
-- 150g de sucre
-- 100g de cassonade
-- 1 sachet de levure chimique
-- 1 cuillère à café de cannelle
-- 18cl d'huile d'olive
-- 500g de carottes râpées
-- 4 œufs
-- 1 pincée de sel
-- 50g de noix
+- 300g de farine 🌾
+- 150g de sucre 🍚
+- 100g de cassonade 🍯
+- 1 sachet de levure chimique 🧪
+- 1 cuillère à café de cannelle 🌿
+- 18cl d'huile d'olive 🫒
+- 500g de carottes râpées 🥕
+- 4 œufs 🥚
+- 1 pincée de sel 🧂
+- 50g de noix 🌰
+- 1 glaçage au fromage frais 🧀
 
-- 160g de sucre glace
-- 120g de beurre mou
-- 120g de fromage frais
+## 👩‍🍳 Préparation
 
-## Étapes
+### Pour la pâte
 
-1. **Râper** 500g de carottes.
-2. **Écraser** 50g de noix.
-3. **Mélanger** dans un récipient le sucre, la cassonade et les œufs.
-4. Ajouter la farine, la levure, la cannelle, l'huile d'olive, puis les carottes râpées et les noix.
-5. **Verser** la préparation dans un moule à gâteau d'environ 31 cm.
-6. **Cuire** au four préchauffé à 180°C pendant environ 45 minutes.
-7. Laisser refroidir avant de démouler.
+#### Râper
+- Les carottes 🥕
 
-## Glaçage fromage frais
+#### Écraser
+- Les noix 🌰
 
-### Étapes
+#### Mélanger 🌀
+- Le sucre, la cassonade et les œufs 🥚 dans un bol.
 
-1. **Ajouter** 160g de sucre glace au beurre mou.
-2. **Mélanger** bien.
-3. **Ajouter** 120g de fromage frais.
-4. **Fouetter** jusqu'à obtenir une consistance lisse.
+#### Ajouter
+- La farine, la levure, la cannelle et l'huile d'olive 🫒.
 
-## Finition
+#### Mélanger 🌀
+- Puis ajouter les carottes râpées et les noix 🌰.
 
-1. Une fois le gâteau refroidi, étaler le glaçage au fromage frais sur le gâteau.
+### Pour la cuisson
+
+#### Verser
+- La préparation dans un moule à gâteau de 31 cm.
+
+#### Cuire
+- Cuire dans un four préchauffé à **180°C** pendant **45 minutes** 🕒🔥.
+
+#### Laisser refroidir
+- Avant de démouler ❄️.
+
+### Pour le glaçage fromage frais
+
+#### 📝 Ingrédients
+
+- 160g de sucre glace 🍚
+- 120g de beurre mou 🧈
+- 120g de fromage frais 🧀
+
+### Préparation du glaçage
+
+#### Ajouter
+- Le sucre glace au beurre mou 🧈.
+
+#### Mélanger 🌀
+
+#### Ajouter
+- Le fromage frais 🧀.
+
+#### Fouetter
+- Jusqu'à obtenir une consistance lisse 🌀.
+
+### Finition
+
+#### Étaler
+- Le glaçage fromage frais sur le gâteau refroidi 🎂❄️.
