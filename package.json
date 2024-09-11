@@ -4,7 +4,7 @@
   "description": "medias'universe open source",
   "main": "index.js",
   "scripts": {
-    "dev": "npm run build && concurrently \"vite --host\" \"wrangler pages dev /functions\"",
+    "dev": "npm run build && concurrently \"vite --host\" \"wrangler --compatibility-date=2024-08-06 pages dev /functions\"",
     "build": "node ./cli/generator.mjs &&  vite build",
     "generate": "node ./cli/generator.mjs"
   },
@@ -34,6 +34,7 @@
     "@editorjs/header": "^2.8.7",
     "@editorjs/list": "^1.10.0",
     "@editorjs/quote": "^2.6.0",
+    "@hapi/nes": "^13.0.1",
     "@kll_/basic": "^0.1.7",
     "@kll_/core": "^0.1.89",
     "@kll_/translate": "^0.1.4",

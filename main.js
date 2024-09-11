@@ -1,4 +1,5 @@
 import './public/style.css'
+import Nes from '@hapi/nes/lib/client'
 import { KLL } from '@kll_/core'
 import {
   CreateComponentPlugin,
@@ -21,10 +22,16 @@ export const cookieConsentKey = '__kllbalelfish__cookieConsent'
 if (localStorage.getItem(cookieConsentKey) === 'consent')
   localStorage.setItem(translateLsKey, defaultLang)
 
+const client = new Nes.Client(import.meta.env.VITE_WS_URL, {
+  reconnect: true,
+  maxDelay: 1000,
+})
+
 const params = {
   id: 'app',
   routes: {
     '/': import('./pages/index.html?raw').then((m) => m.default),
+    '/sync': import('./pages/sync.html?raw').then((m) => m.default),
     '/about': import('./pages/about.html?raw').then((m) => m.default),
     '/legal': import('./pages/legal.html?raw').then((m) => m.default),
     '/category/:category': import('./pages/category.html?raw').then(
@@ -76,11 +83,20 @@ if (import.meta.env.MODE === 'development') {
 
 export const kll = new KLL(params)
 
-addEventListener('DOMContentLoaded', () => {
+addEventListener('DOMContentLoaded', async () => {
   kll.plugins.translate()
   if (localStorage.getItem(cookieConsentKey) !== 'consent') {
     window.history.pushState({}, '', '/consent')
     kll.injectPage('/consent')
+  }
+  // SYNC
+
+  const app = document.querySelector('#app')
+  app._socket = client
+  client.connect()
+
+  app._socket.onConnect = () => {
+    console.log('I Listen Update')
   }
 })
 

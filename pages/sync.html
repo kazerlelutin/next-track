@@ -1,0 +1,45 @@
+<div kll-t="basicLayout">
+  <div class="flex justify-center h-full" kll-ctrl="sync">
+    <div class="flex flex-col max-w-[550px] p-3 overflow-y-auto gap-6">
+
+
+      <div class="italic opacity-60 text-sm">Pour synchroniser vos données entre deux appareils, suivez les étapes
+        ci-dessous :
+      </div>
+
+
+      <!-- Etape 1 : Génération du code de synchronisation -->
+      <div class="border border-rd-urban_gray p-2 rounded-sm flex flex-col gap-2">
+        <p class="text-sm"><strong>Étape n° 1 :</strong>
+          Utilisez ce code sur
+          l'autre appareil pour commencer la synchronisation.</p>
+        <div id="code" class="text-2xl text-center font-bold text-rd-sagwa_old">7347</div>
+        <div class="text-center">
+          <span class="italic">Ce code se réinitialise dans :</span>
+          <span id="chrono" class="text-2sm text-rd-sagwa">4:49</span>
+        </div>
+      </div>
+
+      <!-- Formulaire de synchronisation -->
+      <form id="form-sync" class="flex flex-col gap-2 border border-rd-urban_gray p-4">
+        <h3>Étape n° 2 : Entrez le code de synchronisation</h3>
+        <p class="text-sm">Sur l'autre appareil, entrez le code de synchronisation généré ci-dessus pour lier les deux
+          appareils.</p>
+        <input type="text" class="input border border-rd-highlight p-2 bg-rd-bg" id="code_input"
+          placeholder="Entrez le code" />
+        <button class="btn border border-rd-highlight p-2" id="push" type="submit">
+          synchroniser
+        </button>
+      </form>
+
+      <!-- Validation de la connexion -->
+      <div class="flex flex-col gap-2 border border-rd-urban_gray p-4">
+        <p class="text-sm"><strong>Étape n° 3 :</strong> Un code de validation sera affiché pour confirmer la connexion.
+          Sélectionnez le
+          code correct affiché sur l'autre appareil pour finaliser la synchronisation.</p>
+        <div class="text-2xl text-rd-sagwa_old" id="confirm_code">1234</div>
+      </div>
+
+    </div>
+  </div>
+</div>
