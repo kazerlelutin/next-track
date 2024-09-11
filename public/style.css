@@ -509,6 +509,7 @@ h6 {
   left: 0rem;
 }
 
+.sections,
 .categories {
   @apply transition-all duration-300 ease-in-out;
   left: var(--margin-with-menu);
@@ -519,6 +520,8 @@ h6 {
     left: 10rem;
   }
 
+
+  .close .sections,
   .close .categories {
     left: 0rem;
   }
@@ -542,6 +545,7 @@ a[aria-current='page'] {
     right: -10rem;
   }
 
+  .open .sections,
   .open .categories {
     opacity: 0.5;
     left: 0;
@@ -550,7 +554,12 @@ a[aria-current='page'] {
     pointer-events: none;
   }
 
+  .open .sections {
+    margin-left: var(--margin-with-menu);
+  }
+
   .close .main-content,
+  .close .sections,
   .close .categories {
     left: 0;
     right: 0;
