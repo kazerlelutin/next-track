@@ -25,8 +25,8 @@ author: kazerlelutin
 - **2060-2070**: Disparition de 90% de la population mondiale, récupération des matériaux des villes.
 - **2070**: Communications restaurées entre la Terre et la Lune.
 - **2080**: Reconstruction en communautés, régulation par la Selunit.
-- **2100**: Ascension des coursiers rollers et du derby.
+- **2100**: Ascension des coursiers rollers et du derby. Premier championnat mondial.
 
 # Introduction de Sagwa (2114)
 
-- **2114**: Sagwa quitte l'Australie pour le continent, introduisant le roller.
+- **2124**: Sagwa quitte l'Australie pour le continent, introduisant le roller.

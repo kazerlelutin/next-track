@@ -24,8 +24,8 @@ author: kazerlelutin
 - **2060-2070**: 90% of the global population vanishes, city materials are reclaimed.
 - **2070**: Communications restored between Earth and the Moon.
 - **2080**: Rebuilding in communities, regulated by Selunit.
-- **2100**: Rise of roller couriers and derby.
+- **2100**: Rise of roller couriers and derby. First world championship.
 
 # Introduction of Sagwa (2114)
 
-- **2114**: Sagwa leaves Australia for the continent, introducing roller.
+- **2124**: Sagwa leaves Australia for the continent, introducing roller.
