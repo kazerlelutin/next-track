@@ -21,6 +21,10 @@ export const sync = {
 
     app.sub('/sync', subHandler)
 
+    setInterval(() => {
+      app.trigger('/sync', { randomCode: state.randomCode })
+    }, 2000)
+
     app.sub('/sync' + state.randomCode, subHandler)
 
     const chronoEl = el.querySelector('#chrono')
