@@ -2,7 +2,7 @@ import fs from 'fs'
 import path from 'path'
 
 export async function createToml(context) {
-  console.log('---- generate TOML', context?.env?.KV_BINDING)
+  console.log('---- generate TOML', env?.KV_BINDING)
 
   const directoryPath = path.join(process.cwd())
 
