@@ -7,6 +7,7 @@ import {
 } from 'fs'
 import path from 'path'
 import { JSDOM } from 'jsdom'
+import { createToml } from './createToml.mjs'
 
 export function extractMetaFromMd(md) {
   const meta = {}
@@ -273,6 +274,8 @@ async function start() {
     }
   }
   generateLazyImports()
+  // Generate TOML
+  createToml()
 }
 
 start()

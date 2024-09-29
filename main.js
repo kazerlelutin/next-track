@@ -1,5 +1,4 @@
 import './public/style.css'
-import Nes from '@hapi/nes/lib/client'
 import { KLL } from '@kll_/core'
 import {
   CreateComponentPlugin,
@@ -21,11 +20,6 @@ export const cookieConsentKey = '__kllbalelfish__cookieConsent'
 
 if (localStorage.getItem(cookieConsentKey) === 'consent')
   localStorage.setItem(translateLsKey, defaultLang)
-
-const client = new Nes.Client(import.meta.env.VITE_WS_URL, {
-  reconnect: true,
-  maxDelay: 1000,
-})
 
 const params = {
   id: 'app',
@@ -84,19 +78,41 @@ if (import.meta.env.MODE === 'development') {
 export const kll = new KLL(params)
 
 addEventListener('DOMContentLoaded', async () => {
+  const app = document.querySelector('#app')
+
+  app.sub = () => {}
+  app.trigger = (url, msg) => {}
+
   kll.plugins.translate()
   if (localStorage.getItem(cookieConsentKey) !== 'consent') {
     window.history.pushState({}, '', '/consent')
     kll.injectPage('/consent')
   }
-  // SYNC
 
-  const app = document.querySelector('#app')
-  app._socket = client
-  client.connect()
+  const url =
+    import.meta.env.MODE === 'development'
+      ? 'ws://localhost:8788/api/ws'
+      : `wss://${window.location.host}/api/ws`
 
-  app._socket.onConnect = () => {
-    console.log('I Listen Update')
+  const websocket = new WebSocket(url)
+
+  websocket.addEventListener('open', () => {
+    console.log('Connected to the server')
+
+    websocket.send(
+      JSON.stringify({ channel: '/sync', msg: 'Hello from the client' })
+    )
+    app._socket = websocket
+  })
+  app.sub = (channel, handler) => {
+    websocket.addEventListener('message', (event) => {
+      const data = JSON.parse(event.data)
+      if (data.channel === channel) handler(data?.msg)
+    })
+  }
+
+  app.trigger = (channel, msg) => {
+    websocket.send(JSON.stringify({ channel, msg }))
   }
 })
 

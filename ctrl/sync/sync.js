@@ -16,9 +16,12 @@ export const sync = {
     const app = document.querySelector('#app')
 
     const subHandler = (update) => {
-      console.log('update', update)
+      console.log('update ==>', update)
     }
-    app._socket.subscribe('/sync/' + state.randomCode, subHandler)
+
+    app.sub('/sync', subHandler)
+
+    app.sub('/sync' + state.randomCode, subHandler)
 
     const chronoEl = el.querySelector('#chrono')
     requestAnimationFrame(() => {
