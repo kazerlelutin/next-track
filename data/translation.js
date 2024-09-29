@@ -595,4 +595,49 @@ export const translation = {
     en: 'Logo',
     ko: '로고',
   },
+  generateAcode: {
+    fr: 'Générer un code',
+    en: 'Generate a code',
+    ko: '코드 생성',
+  },
+  enterAcode: {
+    fr: 'Entrez un code',
+    en: 'Enter a code',
+    ko: '코드 입력',
+  },
+  generateAcodeDesc: {
+    fr: 'Cliquez ici pour générer un code unique sur cet appareil. Utilisez ce code sur un autre appareil pour commencer la synchronisation.',
+    en: 'Click here to generate a unique code on this device. Use this code on another device to start synchronization.',
+    ko: '이 장치에서 고유한 코드를 생성하려면 여기를 클릭하십시오. 다른 장치에서 이 코드를 사용하여 동기화를 시작하십시오.',
+  },
+  enterAcodeDesc: {
+    fr: "Cliquez ici pour entrer le code généré sur l'autre appareil afin de synchroniser vos données.",
+    en: 'Click here to enter the code generated on the other device to synchronize your data.',
+    ko: '다른 장치에서 생성된 코드를 입력하여 데이터를 동기화하려면 여기를 클릭하십시오.',
+  },
+  confirmCodeDesc: {
+    fr: 'Veuillez confirmer le code de synchronisation pour continuer.',
+    en: 'Please confirm the synchronization code to continue.',
+    ko: '계속하려면 동기화 코드를 확인하십시오.',
+  },
+  useGenCode: {
+    fr: 'Utilisez ce code sur un autre appareil pour commencer la synchronisation.',
+    en: 'Use this code on another device to start synchronization.',
+    ko: '다른 장치에서 이 코드를 사용하여 동기화를 시작하십시오.',
+  },
+  useInputCode: {
+    fr: "Entrez le code généré sur l'autre appareil pour synchroniser vos données.",
+    en: 'Enter the code generated on the other device to synchronize your data.',
+    ko: '다른 장치에서 생성된 코드를 입력하여 데이터를 동기화하십시오.',
+  },
+  reinitCode: {
+    fr: 'Ce code sera réinitialisé dans:',
+    en: 'This code will be reset in:',
+    ko: '이 코드가 재설정됩니다:',
+  },
+  confirmCode: {
+    fr: "Code de confirmation à entrer sur l'autre appareil:",
+    en: 'Confirmation code to enter on the other device:',
+    ko: '다른 장치에 입력할 확인 코드:',
+  },
 }

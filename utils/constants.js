@@ -6,3 +6,8 @@ export const INTERNAL_APPS = [
     external: true,
   },
 ]
+
+export const SYNC = {
+  PREFIX: 'sync-',
+  BASE_CHRONO: 300000,
+}

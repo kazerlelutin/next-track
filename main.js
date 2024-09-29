@@ -26,6 +26,8 @@ const params = {
   routes: {
     '/': import('./pages/index.html?raw').then((m) => m.default),
     '/sync': import('./pages/sync.html?raw').then((m) => m.default),
+    '/sync-up': import('./pages/syncup.html?raw').then((m) => m.default),
+    '/sync-down': import('./pages/syncdown.html?raw').then((m) => m.default),
     '/about': import('./pages/about.html?raw').then((m) => m.default),
     '/legal': import('./pages/legal.html?raw').then((m) => m.default),
     '/category/:category': import('./pages/category.html?raw').then(
@@ -80,8 +82,9 @@ export const kll = new KLL(params)
 addEventListener('DOMContentLoaded', async () => {
   const app = document.querySelector('#app')
 
+  // No available on start of the app
   app.sub = () => {}
-  app.trigger = (url, msg) => {}
+  app.trigger = (_room, _msg) => {}
 
   kll.plugins.translate()
   if (localStorage.getItem(cookieConsentKey) !== 'consent') {
@@ -89,24 +92,33 @@ addEventListener('DOMContentLoaded', async () => {
     kll.injectPage('/consent')
   }
 
+  // ===== WEBSOCKET =====
   const url =
     import.meta.env.MODE === 'development'
-      ? 'ws://localhost:8788/api/ws'
+      ? 'ws://localhost:3000'
       : `wss://${window.location.host}/api/ws`
 
   const websocket = new WebSocket(url)
 
-  console.log('websocket ==>', url)
   websocket.addEventListener('open', () => {
-    console.log('Connected to the server')
-
+    console.log('WebSocket connection opened')
     app._socket = websocket
   })
+
+  function subHandler(channel, event, handler) {
+    const data = JSON.parse(event.data || '{}')
+    if (!data?.channel) return
+    if (data.channel === channel) handler(data?.msg)
+  }
+
   app.sub = (channel, handler) => {
-    websocket.addEventListener('message', (event) => {
-      const data = JSON.parse(event.data)
-      if (data.channel === channel) handler(data?.msg)
-    })
+    websocket.addEventListener('message', (e) =>
+      subHandler(channel, e, handler)
+    )
+  }
+
+  app.unSub = (channel) => {
+    websocket.removeEventListener('message', () => subHandler(channel))
   }
 
   app.trigger = (channel, msg) => {

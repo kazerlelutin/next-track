@@ -1,2 +1,2 @@
-export * from './sync'
-export * from './setOffer'
+export * from './syncDown'
+export * from './syncUp'
