@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "npm run build && concurrently \"vite --host\" \"wrangler pages dev /functions\"",
     "build:dev": "node --env-file=.env ./cli/generator.mjs &&  vite build",
-    "build": "node --env-file=.env ./cli/generator.mjs &&  vite build",
+    "build": "node ./cli/generator.mjs &&  vite build",
     "generate": "node --env-file=.env  ./cli/generator.mjs"
   },
   "repository": {
