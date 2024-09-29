@@ -96,12 +96,10 @@ addEventListener('DOMContentLoaded', async () => {
 
   const websocket = new WebSocket(url)
 
+  console.log('websocket ==>', url)
   websocket.addEventListener('open', () => {
     console.log('Connected to the server')
 
-    websocket.send(
-      JSON.stringify({ channel: '/sync', msg: 'Hello from the client' })
-    )
     app._socket = websocket
   })
   app.sub = (channel, handler) => {
